@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72f20397-6e1e-475b-a6cb-7835ac53f8f2" name="Default" comment="" />
+    <list default="true" id="72f20397-6e1e-475b-a6cb-7835ac53f8f2" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/replstate.xml" afterPath="$PROJECT_DIR$/.idea/replstate.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/signal_processing/import.clj" afterPath="$PROJECT_DIR$/src/signal_processing/import.clj" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +18,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="core.clj" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mir/core.clj">
           <provider selected="true" editor-type-id="text-editor">
@@ -28,8 +32,8 @@
       <file leaf-file-name="import.clj" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+            <state relative-caret-position="-255">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -40,18 +44,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
               <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <marker date="1484601500451" expanded="true" signature="0:352" ph="(defproject mir ...)" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mir.iml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mir.iml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -63,6 +55,9 @@
     <findStrings>
       <find>over</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -99,6 +94,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -134,23 +132,42 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="signal_processing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mir" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mir" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mir" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="Keybindings" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AudioRecording" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="cursive.last.file.extension.C\:/Users/User/IdeaProjects/mir/src" value="clj" />
   </component>
-  <component name="ReplState" timestamp="1484605893574">{:repl-history {:ide [], :local [&quot;(def arr (into-array Double/TYPE (buffer-read audioStream)))&quot; &quot;(def arr (into-array  Byte/TYPE audioStream))&quot; &quot;def&quot; &quot;(comment def arr (into-array Double/TYPE (buffer-read audioStream)))&quot; &quot;(def stream-read AudioInputStream)&quot; &quot;(def audio-read AudioInputStream)&quot; &quot;(audioStream)&quot; &quot;(print audioStream)&quot; &quot;(def byteArr (let [arr (into-array  Byte/TYPE [])] \n               (. audioStream read arr)))&quot; &quot;(def byteArr (let [arr (into-array  Byte/TYPE [])] \n               (. audioStream read arr)\n               arr))&quot; &quot;(def byteArr (let [arr (into-array  Byte/TYPE [])] \n               (. audioStream read arr)\n               (println arr)))&quot; &quot;(def byteArr (let [arr (into-array  Byte/TYPE [])] \n               (. audioStream read arr)\n               (first arr)))&quot; &quot;(def byteArr (let [arr (into-array  Byte/TYPE [])] \n               (. audioStream read arr)\n               (println (first arr))))&quot; &quot;(def byteArr (let [arr (into-array  Byte/TYPE [])] \n               (. audioStream read arr 0 1024)\n               (println (first arr))))&quot; &quot;(def byteArr (let [arr (into-array  Byte/TYPE [])]\n               (. audioStream read arr 1 1024)\n               (println (first arr))))&quot; &quot;(comment def arr (into-array  Byte/TYPE []))&quot; &quot;(def byteArr (let [arr (into-array  Byte/TYPE [])]\n               (. audioStream read arr)\n               (println (first arr))))&quot; &quot;(def byteArr (let [arrr (into-array  Byte/TYPE [])]\n               (. audioStream read arrr 0 5)\n               (println (first arrr))))&quot; &quot;(def byteArr (let [arrr (into-array  Byte/TYPE [])]\n               (. audioStream read arrr)\n               (println (first arrr))))&quot; &quot;(. audioStream read arr)&quot; &quot;(. audioStream read arr 0 1024)&quot; &quot;(defproject mir \&quot;0.1.0-SNAPSHOT\&quot;\n  :description \&quot;FIXME: write description\&quot;\n  :url \&quot;http://example.com/FIXME\&quot;\n  :license {:name \&quot;Eclipse Public License\&quot;\n            :url \&quot;http://www.eclipse.org/legal/epl-v10.html\&quot;}\n  :dependencies [[org.clojure/clojure \&quot;1.8.0\&quot;]]\n  :main ^:skip-aot mir.core\n  :target-path \&quot;target/%s\&quot;\n  :profiles {:uberjar {:aot :all}})&quot; &quot;(def buffer (new ByteArrayInputStream))&quot; &quot;(def buff (new java.io.ByteArrayInputStream 1500000))&quot; &quot;(def buff (new ByteArrayInputStream 1500000))&quot; &quot;(:require [java.io.ByteArrayInputStream :as buffer])&quot; &quot;(def buff (new buffer 1500000))&quot; &quot;(def buff (new ByteArrayInputStream))&quot; &quot;(def buff (new ByteArrayInputStream 1111111))&quot; &quot;(buff)&quot; &quot;(print buff)&quot; &quot;(. buff reset)&quot; &quot;(def buff new ByteArrayInputStream)&quot; &quot;(mys)&quot; &quot;(def mys (new String \&quot;sa\&quot;))&quot; &quot;(println mys)&quot; &quot;(def mys (new ByteArrayInputStream))&quot; &quot;(def mys (new ByteArrayInputStream Integer.))&quot; &quot;(def mys (new ByteArrayInputStream Integer/getInteger \&quot;1000\&quot;))&quot; &quot;(def mys (new ByteArrayInputStream 1000))&quot; &quot;(def arr (into-array Double/TYPE []))&quot; &quot;(def buff (new java.io.ByteArrayInputStream))&quot; &quot;(def buff ByteArrayInputStream)&quot; &quot;(println buff)&quot; &quot;(def buff ByteArrayInputStream.)&quot; &quot;(def buff java.io.ByteArrayInputStream.)&quot; &quot;(def file (File. \&quot;C:\\\\Users\\\\User\\\\IdeaProjects\\\\mir\\\\resources\&quot;))&quot; &quot;(file/length file)&quot; &quot;(File/length file)&quot; &quot;(def l (. file length))&quot; &quot;(def file (File. \&quot;C:\\\\Users\\\\User\\\\IdeaProjects\\\\mir\\\\resources\\\\rock.00005.au\&quot;))&quot; &quot;(. file length)&quot; &quot;(def arr (into [] file))&quot; &quot;(def audioStream (AudioSystem/getAudioInputStream file))&quot; &quot;(. audioStream getFrameLength)&quot; &quot;(into [] audioStream)&quot; &quot;(def arr [])&quot; &quot;(def byteArr (. audioStream (read arr)))&quot; &quot;(. audioStream read)&quot; &quot;(def byteArr (. audioStream (read arr 0 1024)))&quot; &quot;(def byteArr (. audioStream (. read arr 0 1024)))&quot; &quot;(def byteArr (. audioStream read))&quot; &quot;(def byteArr (. audioStream read (into-array Double/TYPE arr)))&quot; &quot;(def byteArr (. audioStream read (into-array Byte/TYPE)))&quot; &quot;(def byteArr (. audioStream read ([] Byte/TYPE)))&quot; &quot;(byteArr)&quot; &quot;(println byteArr)&quot; &quot;(def byteArr (. audioStream read arr 0 1024))&quot; &quot;(def byteArr (. audioStream read arr 0 10))&quot; &quot;(def byteArr (. audioStream read arr 1 1024))&quot; &quot;(println (second arr))&quot; &quot;(println (first arr))&quot; &quot;(second arr)&quot; &quot;(second byte-array)&quot; &quot;(second (into [] byteArr))&quot; &quot;(first (into [] byteArr))&quot; &quot;(first (into [] arr))&quot; &quot;(def arr (into-array  Byte/TYPE []))&quot; &quot;(def byteArr (. audioStream read arr))&quot; &quot;(first arr)&quot; &quot;(arr)&quot; &quot;(println arr)&quot; &quot;(defproject mir \&quot;0.1.0-SNAPSHOT\&quot;\n  :description \&quot;FIXME: write description\&quot;\n  :url \&quot;http://example.com/FIXME\&quot;\n  :license {:name \&quot;Eclipse Public License\&quot;\n            :url \&quot;http://www.eclipse.org/legal/epl-v10.html\&quot;}\n  :dependencies [[org.clojure/clojure \&quot;1.8.0\&quot;]\n                 [overtone \&quot;0.10.1\&quot;]]\n  :main ^:skip-aot mir.core\n  :target-path \&quot;target/%s\&quot;\n  :profiles {:uberjar {:aot :all}})&quot;], :remote []}}</component>
+  <component name="ReplState" timestamp="1487269167785">{:repl-history {:ide [], :local [&quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short byte-array)]\n          short))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short byte-array)]\n          ))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-array (take 2 byte-arr))]\n          ))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-array (take 2 byte-arr))]\n          short))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-array (take 2 byte-arr))]\n          (short-array short)))&quot; &quot;(to-short-array new-byte-arr)&quot; &quot;(to-short-array (first new-byte-arr))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))]\n          (short-array short)))&quot; &quot;(byte-to-short (byte-array (take 2 new-byte-arr)))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))]\n          short))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))]\n          [short]))&quot; &quot;(print (seq (to-short-array new-byte-arr)))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr []]\n          (into short-arr short)))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr []]\n          (into short-arr short)\n          short-arr))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr (short-array [])]\n          (into short-arr short)\n          short-arr))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr (short-array [])]\n          (into short-arr (short-array short))\n          short-arr))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr (short-array [])]\n          (cons short-arr (short-array short))\n          short-arr))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr (short-array [])]\n          (conj short-arr (short-array short))\n          short-arr))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr []]\n          (conj short-arr (short-array short))\n          short-arr))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr [3]]\n          (conj short-arr (short-array short))\n          short-arr))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr [3]]\n          (conj short-arr short)\n          short-arr))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr [3]]\n          (conj short-arr 1)\n          short-arr))&quot; &quot;(conj [1 2 3] 1)&quot; &quot;(conj new-byte-arr 1)&quot; &quot;(conj (byte-array new-byte-arr) 1)&quot; &quot;(conj (seq new-byte-arr) 1)&quot; &quot;(conj (byte-array (seq new-byte-arr)) 1)&quot; &quot;(byte-array (conj (seq new-byte-arr) 1))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr [3]]\n          (conj (seq short-arr) short)\n          short-arr))&quot; &quot;short&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr [3]]\n          (conj (seq short-arr) 1)\n          short))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr [3]]\n          (conj (seq short-arr) 1)\n          [short]))&quot; &quot;(first (to-short-array new-byte-arr))&quot; &quot;short-arr&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr [3]]\n          (conj (seq short-arr) 1)\n          short-arr))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr [3]]\n          (conj (seq short-arr) 1)\n          ))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr [3]]\n          (conj (seq short-arr) short)\n          ))&quot; &quot;(defn to-short-array [byte-arr]\n         (let [short (byte-to-short (byte-array (take 2 byte-arr)))\n               short-arr [3]]\n          (conj (seq short-arr) short)\n          (to-short-array (subvec byte-arr 2))\n          ))&quot; &quot;(print (to-short-array new-byte-arr))&quot; &quot;(def base-format (. in-audio-stream getFormat))&quot; &quot;(def decoded-format (. AudioFormat (AudioFormat/Encoding PCM_SIGNED)))&quot; &quot;(def decoded-format (. AudioFormat (. AudioFormat/Encoding PCM_SIGNED)))&quot; &quot;(def decoded-format (encoding/PCM_SIGNED))&quot; &quot;(def encoding (. AudioFormat (. AudioFormat/Encoding PCM_SIGNED)))&quot; &quot;(def encoding (. AudioFormat (AudioFormat/Encoding)))&quot; &quot;(def encoding (. AudioFormat \n                 (. AudioFormat/Encoding PCM_SIGNED) \n                 (. base-format getSampleRate) \n                 16 \n                 (. base-format getChannels)\n                 (* 2 (. base-format getChannels))\n                 (. base-format getSampleRate)\n                 false))&quot; &quot;(def decoded-format (. AudioFormat \n                 (. AudioFormat/Encoding PCM_SIGNED) \n                 (. base-format getSampleRate) \n                 16 \n                 (. base-format getChannels)\n                 (* 2 (. base-format getChannels))\n                 (. base-format getSampleRate)\n                 false))&quot; &quot;(ns signal-processing.import\n  (:import (java.io File))\n  ;;(:import (java.io ByteArrayOutputStream))\n  (:import (java.nio ByteBuffer))\n  (:import (javax.sound.sampled AudioInputStream))\n  (:import (javax.sound.sampled AudioSystem))\n  (:import (javax.sound.sampled AudioFormat))\n  (:import (javax.sound.sampled.AudioFormat/Encoding))\n  )&quot; &quot;(def decoded-format (. AudioFormat\n                       (. (. AudioFormat/Encoding) PCM_SIGNED)\n                       (. base-format getSampleRate)\n                       16\n                       (. base-format getChannels)\n                       (* 2 (. base-format getChannels))\n                       (. base-format getSampleRate)\n                       false))&quot; &quot;(def encoding (javax.sound.sampled.AudioFormat/Encoding))&quot; &quot;(def encoding (javax.sound.sampled.AudioFormat.Encoding))&quot; &quot;(def encoding (. javax.sound.sampled.AudioFormat/Encoding))&quot; &quot;(def encoding (. javax.sound.sampled.AudioFormat Encoding))&quot; &quot;(def encoding javax.sound.sampled.AudioFormat/Encoding)&quot; &quot;(def encoding AudioFormat/Encoding)&quot; &quot;(def encoding (. AudioFormat/Encoding))&quot; &quot;(def encoding (AudioFormat/Encoding))&quot; &quot;(def encoding (AudioFormat.Encoding/PCM_SIGNED))&quot; &quot;(map #(eval `(import-static javax.sound.sampled.AudioFormat$Encoding ~(symbol (.getName %))))\n     (filter #(bit-and java.lang.reflect.Modifier/STATIC\n                       (.getModifiers %))\n             (.getFields javax.sound.sampled.AudioFormat$Encoding)))&quot; &quot;(def decoded-audio-stream (. AudioSystem getAudioInputStream decoded-format in-audio-stream))&quot; &quot;(def stream-size (. in-audio-stream available))&quot; &quot;(def stream-size (. decoded-audio-stream available))&quot; &quot;(while\n  (&gt; (. decoded-audio-stream read byte-arr) 0)\n  (. decoded-audio-stream read byte-arr 0 stream-size)\n  )&quot; &quot;(nth byte-arr 100000)&quot; &quot;(nth byte-arr 1000000)&quot; &quot;(nth byte-arr 10000000)&quot; &quot;1000000&quot; &quot;(nth byte-arr 1010000)&quot; &quot;(ns signal-processing.import\n  (:import (java.io File))\n  ;;(:import (java.io ByteArrayOutputStream))\n  (:import (java.nio ByteBuffer))\n  (:import (javax.sound.sampled AudioInputStream AudioSystem AudioFormat AudioFormat$Encoding))\n  )&quot; &quot;(first read-bytes)&quot; &quot;(print read-bytes)&quot; &quot;(read-bytes)&quot; &quot;(first byte-arr)&quot; &quot;(nth byte-arr 10)&quot; &quot;(def data-stream (DataInputStream. (ByteArrayInputStream. byte-arr)))&quot; &quot;(conj float-arr (first (. data-stream readFloat)))&quot; &quot;(conj float-arr (into-array (first (. data-stream readFloat))))&quot; &quot;(conj float-arr (into-array (seq (first (. data-stream readFloat)))))&quot; &quot;(conj float-arr (seq (into-array (first (. data-stream readFloat)))))&quot; &quot;(conj float-arr (into-array (first (. data-stream readFloat)) (second (. data-stream readFloat))))&quot; &quot;(conj float-arr (. data-stream readFloat))&quot; &quot;(conj float-arr (into [] (. data-stream readFloat)))&quot; &quot;(conj float-arr (into [] (seq (. data-stream readFloat))))&quot; &quot;(aset float-arr  1 (. data-stream readFloat))&quot; &quot;(byte-to-float)&quot; &quot;(print stream-size)&quot; &quot;(first float-arr)&quot; &quot;(nth float-arr 10)&quot; &quot;(def dir\&quot;C:\\\\Users\\\\User\\\\Desktop\\\\dataset\\\\genres\\\\rock\&quot;)&quot; &quot;(def files (. (File. dir) listFiles))&quot; &quot;(def path (. (first (. files)) getAbsolutePath))&quot; &quot;(def path (. (first files) getAbsolutePath))&quot; &quot;(def file (File. path))&quot; &quot;(map #(intern *ns* (symbol (.getName %)) (.get % javax.sound.sampled.AudioFormat$Encoding))\n     (filter #(bit-and java.lang.reflect.Modifier/STATIC\n                       (.getModifiers %))\n             (.getFields javax.sound.sampled.AudioFormat$Encoding)))&quot; &quot;(. file length)&quot; &quot;(count float-arr)&quot; &quot;*&quot; &quot;(* (count float-arr) 4)&quot; &quot;(count byte-arr)&quot; &quot;(defn load-encodings []\n  (map #(intern *ns* (symbol (.getName %)) (.get % javax.sound.sampled.AudioFormat$Encoding))\n                         (filter #(bit-and java.lang.reflect.Modifier/STATIC\n                                           (.getModifiers %))\n                                 (.getFields javax.sound.sampled.AudioFormat$Encoding))))&quot; &quot;(load-encodings)&quot;], :remote []}}</component>
   <component name="RunManager" selected="Clojure REPL.Leiningen">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
@@ -411,29 +428,29 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20274551" sideWeight="0.50208336" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3171875" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3125" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2046875" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20274551" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39915523" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -448,15 +465,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/signal_processing/mir/sp.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/signal_processing/mir/import.clj">
+    <entry file="file://$PROJECT_DIR$/src/mir/core.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -464,6 +473,128 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mir.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mir/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mir.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mir/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mir.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mir/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mir.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/mir/sp.clj" />
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/mir/import.clj" />
     <entry file="file://$PROJECT_DIR$/src/mir/core.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -484,16 +615,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <marker date="1484601500451" expanded="true" signature="0:352" ph="(defproject mir ...)" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+        <state relative-caret-position="-255">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
