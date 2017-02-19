@@ -1,26 +1,31 @@
-(ns util.numbers)
+(ns util.numbers
+  (:require [complex.core :as cx]))
 
-(defn number-of-decimals [num]
-  (. (str num) substring
-     (+ 1 (. (str num) indexOf "E"))
-     (. (str num) length)))
+(defn number-of-decimals [decimal]
+  (. (str decimal) substring
+     (+ 1 (. (str decimal) indexOf "E"))
+     (. (str decimal) length)))
 
-(defn i-part [num]
-  (let [x (Integer/parseInt (. (str (Math/abs num)) substring
+(defn i-part [decimal]
+  (let [x (Integer/parseInt (. (str (Math/abs decimal)) substring
                                0
-                               (. (str (Math/abs num)) indexOf ".")))]
-    (if (< num 0)
+                               (. (str (Math/abs decimal)) indexOf ".")))]
+    (if (< decimal 0)
       (* -1 x)
       x)
     )
   )
 
-(defn d-part [num]
-  (- num (i-part num)))
+(defn d-part [decimal]
+  (- decimal (i-part decimal)))
 
-(defn cut-after-first-positive [num]
-  (let [mul (Math/pow 10 (Math/floor (Math/log10 (Math/abs num))))]
-    (* (Math/round (/ num mul)) mul)))
+(defn cut-after-first-positive [decimal]
+  (let [mul (Math/pow 10 (Math/floor (Math/log10 (Math/abs decimal))))]
+    (* (Math/round (/ decimal mul)) mul)))
 
-(defn round [num]
-  (+ (i-part num) (cut-after-first-positive (d-part num))))
+(defn round [decimal]
+  (+ (i-part decimal) (cut-after-first-positive (d-part decimal))))
+
+
+(defn power [complex]
+  (* (cx/abs complex) (cx/abs complex)))

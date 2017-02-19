@@ -1,11 +1,8 @@
-(ns signal-processing.ZeroCrossings)
+(ns feature.ZeroCrossings)
 
 (defn extractFeature [samples] (filter (fn [sample] ( sample > 0.0)) samples))
 
-
-
 (defn isCrossPoint [a b] (if (or (and (> a 0) (< b 0)) (and (< a 0) (> b 0)) (and (= a 0) (not= b 0))) true false))
-
 
 (def extractFeature
   (fn [samples]

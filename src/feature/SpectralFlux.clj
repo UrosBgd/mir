@@ -1,4 +1,4 @@
-(ns signal-processing.SpectralFlux)
+(ns feature.SpectralFlux)
 
 (defn pow [b e] (Math/pow b e))
 

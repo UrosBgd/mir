@@ -1,20 +1,21 @@
 (ns dsp.fft
-  (:use [complex.core :as cx])
+  (:use [util.numbers])
+  (:require [complex.core :as cx])
   (:require [clojure.math.numeric-tower :as math])
   (:require [io.import :as audio])
   )
 
-(def i (complex 0 1))
+(def i (cx/complex 0 1))
 
 (defn make-rotating-function
   [N]
   (fn
     [idx sample]
-    (*
+    (cx/*
       sample
-      (exp
-        (/
-          (* -2 Math/PI i idx)
+      (cx/exp
+        (cx//
+          (cx/* -2 Math/PI i idx)
           N)))))
 
 (defn twotimes [input]
@@ -36,9 +37,9 @@
   (vec
     (if
       (= length 1)
-      (map (fn [s] (complex s)) samples)
+      (map (fn [s] (cx/complex s)) samples)
       (map
-        +
+        cx/+
         (twotimes
           (fft (evn samples)))
         (rotate-vector
