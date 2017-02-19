@@ -1,16 +1,9 @@
-(ns signal-processing.import
+(ns io.import
+  (:use [util.numbers])
+  (:use [util.encodings])
   (:import (java.io File ByteArrayInputStream DataInputStream))
   (:import (javax.sound.sampled AudioInputStream AudioSystem AudioFormat AudioFormat$Encoding))
   )
-
-;load all static fields from javax.sound.sampled.AudioFormat.Encoding statis inner class as variables
-(defn load-encodings []
-  (map #(intern *ns* (symbol (.getName %)) (.get % javax.sound.sampled.AudioFormat$Encoding))
-                         (filter #(bit-and java.lang.reflect.Modifier/STATIC
-                                           (.getModifiers %))
-                                 (.getFields javax.sound.sampled.AudioFormat$Encoding))))
-
-(load-encodings)
 
 ;def directory path
 (def dir "C:\\Users\\User\\Desktop\\dataset\\genres\\rock")
@@ -23,8 +16,6 @@
 
 ;load audio file
 (def file (File. path))
-
-(. file length)
 
 ;get new AudioInputStream from file
 (def in-audio-stream (AudioSystem/getAudioInputStream file))
@@ -55,36 +46,30 @@
 (defn read-bytes []
   (. decoded-audio-stream read byte-arr 0 stream-size))
 
-(read-bytes)
 
-(first byte-arr)
-(nth byte-arr 10)
+;def short-array for storing input stream in shorts
+(def short-arr (make-array Short/TYPE (/ stream-size 2)))
 
-;def float-array for storing input stream in floats
-(def float-arr (make-array Float/TYPE (/ stream-size 4)))
-
-;data stream for converting byte to float
+;data stream for converting byte to short
 (def data-stream (DataInputStream. (ByteArrayInputStream. byte-arr)))
 
-;convert byte-arr to float-arr
-(defn byte-to-float []
+;convert byte-arr to short-arr
+(defn byte-to-short []
   (loop [i 0]
-     (when (< i (/ stream-size 4))
-       (aset float-arr i (. data-stream readFloat))
-       (recur (+ i 1))
-     )
+    (when (< i (/ stream-size 2))
+      (aset short-arr i (. data-stream readShort))
+      (recur (+ i 1))
+      )
+    )
   )
-)
 
-(byte-to-float)
+(comment loop [i 0]
+  (when (< i (/ stream-size 2))
+    (spit "short-array.txt" (str (aget short-arr i) "\n") :append true)
+    (recur (+ i 1))
+    )
+  )
 
-(first float-arr)
-(nth float-arr 10)
-
-
-
-
-
-
-
-
+(load-encodings)
+(read-bytes)
+(byte-to-short)
