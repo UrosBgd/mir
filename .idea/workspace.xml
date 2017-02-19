@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72f20397-6e1e-475b-a6cb-7835ac53f8f2" name="Default" comment="added FFT implementation">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__cfft_0_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__complex_0_1_8.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_apache_commons_commons_math3_3_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_math_numeric_tower_0_0_2.xml" />
+    <list default="true" id="72f20397-6e1e-475b-a6cb-7835ac53f8f2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/replstate.xml" afterPath="$PROJECT_DIR$/.idea/replstate.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,57 +20,47 @@
       <file leaf-file-name="core.clj" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mir/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="45">
+              <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="import.clj" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/io/import.clj">
+      <file leaf-file-name="import.clj" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="25" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="25" />
+            <state relative-caret-position="465">
+              <caret line="31" column="17" lean-forward="false" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fft.clj" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dsp/fft.clj">
+      <file leaf-file-name="audio.clj" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/signal_processing/audio.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" column="16" lean-forward="false" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+            <state relative-caret-position="210">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fft.clj" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pending/fft.clj">
+      <file leaf-file-name="SpectralFlux.clj" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/signal_processing/SpectralFlux.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="43" column="43" lean-forward="true" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
+            <state relative-caret-position="90">
+              <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="numbers.clj" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/numbers.clj">
+      <file leaf-file-name="ZeroCrossings.clj" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/signal_processing/ZeroCrossings.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="59" lean-forward="true" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="encodings.clj" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/encodings.clj">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="120">
               <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
@@ -87,26 +72,15 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>over</find>
-      <find>half-num-poinst</find>
-      <find>let</find>
-      <find>tempR</find>
-      <find>var-set</find>
-      <find>aset</find>
-      <find>asset</find>
-      <find>SI</find>
-      <find>ip</find>
+      <find>lst</find>
       <find>i</find>
-      <find>real</find>
-      <find>902</find>
-      <find>nil</find>
-      <find>3033</find>
-      <find>byte</find>
-      <find>579579</find>
-      <find>357607</find>
-      <find>35760</find>
-      <find>5795</find>
-      <find>double</find>
+      <find>AudioSystem</find>
+      <find>format</find>
     </findStrings>
+    <replaceStrings>
+      <replace>samples</replace>
+      <replace>samplea</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -120,21 +94,18 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/signal_processing/mir/sp.clj" />
-        <option value="$PROJECT_DIR$/src/signal_processing/import.clj" />
-        <option value="$PROJECT_DIR$/.hgignore" />
         <option value="$PROJECT_DIR$/project.clj" />
-        <option value="$PROJECT_DIR$/src/io/import.clj" />
-        <option value="$PROJECT_DIR$/src/util/encodings.clj" />
-        <option value="$PROJECT_DIR$/src/util/numbers.clj" />
-        <option value="$PROJECT_DIR$/src/dsp/fft.clj" />
-        <option value="$PROJECT_DIR$/src/pending/fft.clj" />
+        <option value="$PROJECT_DIR$/src/signal_processing/import.clj" />
+        <option value="$PROJECT_DIR$/src/signal_processing/ZeroCrossings.clj" />
+        <option value="$PROJECT_DIR$/src/signal_processing/audio.clj" />
+        <option value="$PROJECT_DIR$/src/signal_processing/SpectralFlux.clj" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
+    <option name="x" value="59" />
+    <option name="y" value="24" />
+    <option name="width" value="1861" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
@@ -152,6 +123,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -184,43 +158,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mir" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mir" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pending" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mir" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mir" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -238,11 +176,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base+system+user+dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mir" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mir" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="io" />
+              <option name="myItemId" value="signal_processing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -260,101 +216,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dsp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="mir" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mir" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="Keybindings" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AudioRecording" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="cursive.last.file.extension.C\:/Users/User/IdeaProjects/mir/src" value="clj" />
+    <property name="cursive.last.file.extension./home/stefan/IdeaProjects/mir/src" value="clj" />
   </component>
-  <component name="ReplState" timestamp="1487471815676">{:repl-history {:ide [], :local [&quot;(i-part 1.560150202283989E32)&quot; &quot;(println (. (str 1.560150202283989E32) substring 0 2))&quot; &quot;(println (. (str 1.560150202283989E32) substring 0 1))&quot; &quot;(println (int (. (str 1.560150202283989E32) substring 0 1)))&quot; &quot;(println (Integer/parseInt (. (str 1.560150202283989E32) substring 0 1)))&quot; &quot;(defn i-part [num]\n  (Integer/parseInt (. (str num) substring 0 1)))&quot; &quot;(println round 1.560150202283989E32)&quot; &quot;(println round 1.560150202283)&quot; &quot;(println (round 1.560150202283989E32))&quot; &quot;(println (str 1.560150202283989E32))&quot; &quot;(println (. (str 1.560150202283989E32) indexOf \&quot;E\&quot;))&quot; &quot;(println (. (str 1.560150202283989E32) substring (. (str 1.560150202283989E32) indexOf \&quot;E\&quot;) (- (. (str 1.560150202283989E32) length) 1 )))&quot; &quot;(println (. (str 1.560150202283989E32) substring (. (str 1.560150202283989E32) indexOf \&quot;E\&quot;) (- (. (str 1.560150202283989E32) length) 0 )))&quot; &quot;(println (. (str 1.560150202283989E32) substring (+ 1 (. (str 1.560150202283989E32) indexOf \&quot;E\&quot;)) (. (str 1.560150202283989E32) length)))&quot; &quot;(defn number-of-decimals [num]\n  (. (str num) substring\n                (+ 1 (. (str num) indexOf \&quot;E\&quot;))\n                (. (str num) length)))&quot; &quot;(println (Math/round 0.0000000005))&quot; &quot;(println (Math/round (double 0.0000000005)))&quot; &quot;(println (/ (Math/round (* (double 0.0000000005) 10000000)) 10000000))&quot; &quot;(println (/ (Math/round (* (double 0.00005) 10000000)) 10000000))&quot; &quot;(println (/ (Math/round (* (float 0.00005) 10000000)) 10000000))&quot; &quot;(defn round-to-seven [num]\n  (/ (Math/round (* (float 7.00005) 10000000)) 10000000))&quot; &quot;(println (/ (Math/round (* (float 7.00005) 10000000)) 10000000))&quot; &quot;(println (/ (Math/round (* (nth float-arr 10) 10000000)) 10000000))&quot; &quot;(println (/ (Math/round (* (nth float-arr 11) 10000000)) 10000000))&quot; &quot;(println (Integer/parseInt (. (str -0.554225545) substring 0 1)))&quot; &quot;(println (Integer/parseInt (. (str 5.00545454) substring\n                              (- 1 (. (str num) indexOf \&quot;.\&quot;))\n                              (. (str num) indexOf \&quot;.\&quot;))\n         )\n)&quot; &quot;(. (str 5.00545454) substring\n                              (- 1 (. (str 5.00545454) indexOf \&quot;.\&quot;))\n                              (. (str 5.00545454) indexOf \&quot;.\&quot;))&quot; &quot;(println (Integer/parseInt (. (str -5.00545454) substring\n                              (- 1 (. (str -5.00545454) indexOf \&quot;.\&quot;))\n                              (. (str -5.00545454) indexOf \&quot;.\&quot;))\n         )\n)&quot; &quot;(. (str -5.00545454) substring\n                              (- 1 (. (str -5.00545454) indexOf \&quot;.\&quot;))\n                              (. (str -5.00545454) indexOf \&quot;.\&quot;))&quot; &quot;(- 1 (. (str -5.00545454) indexOf \&quot;.\&quot;))&quot; &quot;(. (str -5.00545454) indexOf \&quot;.\&quot;)&quot; &quot;(. (str -5.00545454) substring\n                              (- (. (str -5.00545454) indexOf \&quot;.\&quot;) 1)\n                              (. (str -5.00545454) indexOf \&quot;.\&quot;))&quot; &quot;(println (Integer/parseInt (. (str 5.00545454) substring\n                              (- (. (str 5.00545454) indexOf \&quot;.\&quot;) 1)\n                              (. (str 5.00545454) indexOf \&quot;.\&quot;))\n         )\n)&quot; &quot;(. (str 5.00545454) substring\n                              (- (. (str 5.00545454) indexOf \&quot;.\&quot;) 1)\n                              (. (str 5.00545454) indexOf \&quot;.\&quot;))&quot; &quot;(println (i-part -10.55454))&quot; &quot;(println (Integer/parseInt (. (str 5.00545454) substring\n                              0\n                              (. (str 5.00545454) indexOf \&quot;.\&quot;)))\n)&quot; &quot;(println (Integer/parseInt (. (str 50.00545454) substring\n                              0\n                              (. (str 50.00545454) indexOf \&quot;.\&quot;)))\n)&quot; &quot;(defn test [num] \n  (let [x (Integer/parseInt (. (str num) substring\n                               0\n                               (. (str num) indexOf \&quot;.\&quot;)))]\n    (if (&lt; num 0))\n    (* -1 x))\n)&quot; &quot;(defn test-me [num] \n  (let [x (Integer/parseInt (. (str num) substring\n                               0\n                               (. (str num) indexOf \&quot;.\&quot;)))]\n    (if (&lt; num 0))\n    (* -1 x))\n)&quot; &quot;(defn test-me [num] \n  (let [x (Integer/parseInt (. (str num) substring\n                               0\n                               (. (str num) indexOf \&quot;.\&quot;)))]\n    (if (&lt; num 0)\n      (* -1 x))\n    )\n)&quot; &quot;(defn test-me [num] \n  (let [x (Integer/parseInt (. (str num) substring\n                               0\n                               (. (str num) indexOf \&quot;.\&quot;)))]\n    (if (&lt; num 0)\n      (* -1 x)\n      x)\n    )\n)&quot; &quot;(test-me 5.22355)&quot; &quot;(test-me 156.3322355)&quot; &quot;(defn test-me [num] \n  (let [x (Integer/parseInt (. (str (Math/abs num)) substring\n                               0\n                               (. (Math/abs num) indexOf \&quot;.\&quot;)))]\n    (if (&lt; num 0)\n      (* -1 x)\n      x)\n    )\n)&quot; &quot;(defn test-me [num] \n  (let [x (Integer/parseInt (. (str (Math/abs num)) substring\n                               0\n                               (. (str (Math/abs num)) indexOf \&quot;.\&quot;)))]\n    (if (&lt; num 0)\n      (* -1 x)\n      x)\n    )\n)&quot; &quot;(test-me -156.3322355)&quot; &quot;(test-me -1.3322355)&quot; &quot;(test-me -0.3322355)&quot; &quot;(test-me 0.3322355)&quot; &quot;(test-me 54.3322355)&quot; &quot;(test-me -54.3322355)&quot; &quot;(test-me -4.3322355)&quot; &quot;(println (/ (Math/round (* (nth float-arr 157) 10000000)) 10000000))&quot; &quot;(test-me -4.3322355E24)&quot; &quot;(loop [i 0]\n  (when (&lt; i byte-arr)\n    (let [x (i-part (aget byte-arr i))]\n    (println x)\n    (recur (+ i 1))\n    )\n))&quot; &quot;(defn i-part [num]\n  (let [x (Integer/parseInt (. (str (Math/abs num)) substring\n                               0\n                               (. (str (Math/abs num)) indexOf \&quot;.\&quot;)))]\n    (if (&lt; num 0)\n      (* -1 x)\n      x)\n  )\n)&quot; &quot;(loop [i 0]\n  (when (&lt; i (count byte-arr))\n    (println (i-part (aget byte-arr i)))\n    (recur (+ i 1))\n  )\n)&quot; &quot;(println (i-part 5.2235))&quot; &quot;(i-part 5.2235)&quot; &quot;(loop [i 0]\n  (when (&lt; i 10)\n    (println (i-part 54454.545))\n    (recur (+ i 1))\n  )\n)&quot; &quot;(loop [i 0]\n  (when (&lt; i 10)\n    (println (i-part (aget byte-arr i)))\n    (recur (+ i 1))\n  )\n)&quot; &quot;(loop [i 0]\n  (when (&lt; i 10)\n    (println (aget byte-arr i))\n    (recur (+ i 1))\n  )\n)&quot; &quot;(defn byte-to-float []\n  (loop [i 0]\n    (when (&lt; i (/ stream-size 4))\n      (let [x (. data-stream readFloat)]\n      (aset-float float-arr i x)\n      (println x))\n      (recur (+ i 1))\n    )\n  )\n)&quot; &quot;(defn byte-to-float []\n  (loop [i 0]\n    (when (&lt; i (/ stream-size 4))\n      (let [x (round (. data-stream readFloat))]\n      (aset-float float-arr i x))\n      (recur (+ i 1))\n    )\n  )\n)&quot; &quot;(defn byte-to-float []\n  (loop [i 0]\n    (when (&lt; i (/ stream-size 2))\n      (let [x (round (. data-stream readFloat))]\n      (aset-float float-arr i x))\n      (recur (+ i 1))\n    )\n  )\n)&quot; &quot;(defn byte-to-float []\n  (loop [i 0]\n    (when (&lt; i (/ stream-size 2))\n      (let [x (. data-stream readFloat)]\n      (aset-float float-arr i x))\n      (recur (+ i 1))\n    )\n  )\n)&quot; &quot;(defn byte-to-float []\n  (loop [i 0]\n    (when (&lt; i (/ stream-size 2))\n      (let [x (. data-stream readShort)]\n      (aset-float float-arr i x))\n      (recur (+ i 1))\n    )\n  )\n)&quot; &quot;(count byte-arr)&quot; &quot;(count short-array)&quot; &quot;(println (round 5.2665))&quot; &quot;(println (round 5.0002665))&quot; &quot;(println (round 5.0000002665))&quot; &quot;(println (round 5.00000000002665))&quot; &quot;(println (round 5.00002665))&quot; &quot;(println (round -5.00002665))&quot; &quot;(println (round -51.00002665))&quot; &quot;(println (round -51.02665))&quot; &quot;(loop [i 0]\n     (when (&lt; i (/ stream-size 4))\n       (aset float-arr i (. data-stream readFloat))\n       (recur (+ i 1))\n     )\n  )&quot; &quot;(defn byte-to-float []\n  (loop [i 0]\n     (when (&lt; i (/ stream-size 4))\n       (aset float-arr i (. data-stream readFloat))\n       (recur (+ i 1))\n     )\n  )\n)&quot; &quot;(byte-to-float)&quot; &quot;(nth float-arr 10)&quot; &quot;(nth float-arr 11)&quot; &quot;(loop [i 0]\n  (when (&lt; i (/ stream-size 4))\n    (println (aget float-arr i))\n    (recur (+ i 1))\n    )\n  )&quot; &quot;(loop [i 0]\n  (when (&lt; i (/ stream-size 4))\n    (spit \&quot;float-array.txt\&quot; (aget float-arr i) :append true)\n    (recur (+ i 1))\n    )\n  )&quot; &quot;(loop [i 0]\n  (when (&lt; i (/ stream-size 4))\n    (spit \&quot;float-array.txt\&quot; (str (aget float-arr i) \\n) :append true)\n    (recur (+ i 1))\n    )\n  )\n\n(loop [i 0]\n  (when (&lt; i (/ stream-size 2))\n    (spit \&quot;short-array.txt\&quot; (str (aget short-arr i) \\n) :append true)\n    (recur (+ i 1))\n    )\n  )&quot; &quot;(loop [i 0]\n  (when (&lt; i 4)\n    (spit \&quot;float-array.txt\&quot; (str (aget float-arr i) \&quot;\\n\&quot;) :append true)\n    (recur (+ i 1))\n    )\n  )&quot; &quot;(byte-to-short)&quot; &quot;(aget real 2)&quot; &quot;(aget imag 2)&quot; &quot;(count short-arr)&quot; &quot;(load-encodings)&quot; &quot;(nth short-arr 10)&quot; &quot;(nth short-arr 11)&quot; &quot;(nth short-arr 12)&quot; &quot;(nth short-arr 13)&quot; &quot;(nth short-arr 14)&quot; &quot;(nth short-arr 15)&quot; &quot;(nth short-arr 900)&quot; &quot;(def window (into-array Double/TYPE (make-window audio/short-arr 4096)))&quot; &quot;(fft window)&quot; &quot;(fft)&quot;], :remote []}}</component>
+  <component name="ReplState" timestamp="1487511441809">{:repl-history {:ide [], :local [&quot;(load-encodings)&quot; &quot;(def z1\n  (fn [lst]\n    (loop [i lst cnt 0]\n      (cond (empty? i) cnt\n              :t (recur (rest i)(if (and (&gt; (first i) 0) (&lt; (second i) 0) (inc cnt))))))))&quot; &quot;(def z1\n  (fn [lst]\n    (loop [i lst cnt 0]\n      (cond (empty? i) cnt\n              :t (recur (rest i)(if (and (&gt; (first i) 0) (&lt; (second i) 0) (inc cnt) nil)))))))&quot; &quot;(if 1)&quot; &quot;(if nil \&quot;logical true\&quot; \&quot;logical false\&quot;)&quot; &quot;(if nil \&quot;logical true\&quot;)&quot; &quot;(if (and (&gt; 1 0) (&lt; 2 3)) \&quot;logical true\&quot;)&quot; &quot;(if (and (&gt; (first [1 2 3]) 0) (&lt; (second [1 2 3]) 3)) \&quot;logical true\&quot;)&quot; &quot;(def z1\n  (fn [lst]\n    (loop [i lst cnt 0]\n      (cond (empty? i) cnt\n              :t (recur (rest i)(if (and (&gt; (first i) 0) (&lt; (second i) 0)) (inc cnt)))))))&quot; &quot;(z1 [1 -1])&quot; &quot;(z1 [1 -1 1 -1])&quot; &quot;(def z2\n  (fn [lst]\n    (loop [i lst cnt 0]\n      (cond (empty? i) cnt\n              :t (recur (rest i)(if (&gt; (first i) 0) (inc cnt)))))))&quot; &quot;(z2 [1 -1 1 -1])&quot; &quot;(z2 [1 -1])&quot; &quot;(def z3\n  (fn [lst]\n    (loop [i lst cnt 0]\n      (cond (empty? i) cnt\n              :t (recur (rest i)(if (&gt; (first i) 0) (inc cnt) cnt))))))&quot; &quot;(z3 [1 -1])&quot; &quot;(def z\n  (fn [lst]\n    (loop [i lst cnt 0]\n      (cond (empty? i) cnt\n              :t (recur (rest i)(if (and (&gt; (first i) 0) (&lt; (second i) 0)) (inc cnt) cnt))))))&quot; &quot;(z [1 -1])&quot; &quot;(z [1 -1 1 1 1])&quot; &quot;(z [1 -1 1])&quot; &quot;(def zz\n  (fn [lst]\n    (loop [i lst cnt 0]\n      (cond (or (empty? i) (empty? (second i))) cnt\n              :t (recur (rest i)(if (and (&gt; (first i) 0) (&lt; (second i) 0)) (inc cnt) cnt))))))&quot; &quot;(zz [1 -1])&quot; &quot;(second [1 2 3])&quot; &quot;(def zzz\n  (fn [lst]\n    (loop [i lst cnt 0]\n      (cond (or (empty? i) (empty? (rest i))) cnt\n              :t (recur (rest i)(if (and (&gt; (first i) 0) (&lt; (second i) 0)) (inc cnt) cnt))))))&quot; &quot;(zzz [1 -1])&quot; &quot;(zzz [1 -1 1 -2 -3])&quot; &quot;(zzz [1 -1 1 -2 3 -1])&quot; &quot;(defn isCrossPoint [a b] ((if (and (&gt; a 0) (&lt; b 0)) (and (&lt; a 0) (&gt; b 0)) (and (= a 0) (!= b 0)))))&quot; &quot;(defn isCrossPoint [a b] ((if (and (&gt; a 0) (&lt; b 0)) (and (&lt; a 0) (&gt; b 0)) (and (= a 0) (not= b 0)))))&quot; &quot;(defn isCrossPoint [a b] ((if (or (and (&gt; a 0) (&lt; b 0)) (and (&lt; a 0) (&gt; b 0)) (and (= a 0) (not= b 0))))))&quot; &quot;(defn isCrossPoint [a b] ((if (or (and (&gt; a 0) (&lt; b 0)) (and (&lt; a 0) (&gt; b 0)) (and (= a 0) (not= b 0)))) true))&quot; &quot;(isCrossPoint [[1] [-1]])&quot; &quot;(isCrossPoint [1] [-1])&quot; &quot;(defn isCrossPoint [a, b] ((if (or (and (&gt; a 0) (&lt; b 0)) (and (&lt; a 0) (&gt; b 0)) (and (= a 0) (not= b 0))) true)))&quot; &quot;(isCrossPoint [1 -1])&quot; &quot;(isCrossPoint 1 -1])&quot; &quot;(defn isCrossPoint [a b] ((if (or (and (&gt; a 0) (&lt; b 0)) (and (&lt; a 0) (&gt; b 0)) (and (= a 0) (not= b 0))) true)))&quot; &quot;(if (= 1 1) true)&quot; &quot;(defn isCrossPoint [a b] (if (or (and (&gt; a 0) (&lt; b 0)) (and (&lt; a 0) (&gt; b 0)) (and (= a 0) (not= b 0))) true))&quot; &quot;(isCrossPoint 1 -1)&quot; &quot;(defn isCrossPoint [a b] (if (or (and (&gt; a 0) (&lt; b 0)) (and (&lt; a 0) (&gt; b 0)) (and (= a 0) (not= b 0))) true false))&quot; &quot;(isCrossPoint -1 -1)&quot; &quot;(def zzz\n  (fn [lst]\n    (loop [i lst cnt 0]\n      (cond (or (empty? i) (empty? (rest i))) cnt\n              :t (recur (rest i)(if (isCrossPoint (first i) (second i)) (inc cnt) cnt))))))&quot; &quot;(zzz [1 -1 1 -2 3 0])&quot; &quot;(def zzz\n  (fn [lst]\n    (loop [i lst cnt 0]\n      (cond (or (empty? i) (empty? (rest i))) cnt\n              (recur (rest i)(if (isCrossPoint (first i) (second i)) (inc cnt) cnt))))))&quot; &quot;(cond (= 1 1) (inc 1) 3)&quot; &quot;(cond (= 1 1) (inc 1) (+ 3 2))&quot; &quot;(cond (= 1 1) 3 2)&quot; &quot;(cond (= 1 1) 3 :t 2)&quot; &quot;(cond (= 1 1) (inc 1) :t (+ 3 2))&quot; &quot;(cond (= 1 2) (inc 1) :t (+ 3 2))&quot; &quot;(doseq [s (map #(str %1 %2) [1 2 3] [0 1 1])]\n  (println s))&quot; &quot;(defn pow [b e] (Math/pow b e))&quot; &quot;(pow 2 2)&quot; &quot;(pow 2 3)&quot; &quot;(doseq [s (map #(- %1 %2) [1 2 3] [0 1 1])]\n  (pow s 2))&quot; &quot;(doseq [s (map #(- %1 %2) [1 2 3] [0 1 1])]\n  (pow s 2) (print s))&quot; &quot;(doseq [s (map (pow #(- %1 %2) 2) [1 2 3] [0 1 1])]\n  (println s))&quot; &quot;(doseq [s (map #(- %1 %2) [1 2 3] [0 1 1])]\n  (println s))&quot; &quot;(doseq [s (map #(- %1 %2) [1 2 3] [0 1 1])]\n  (sum s))&quot; &quot;(doseq [s (map #(- %1 %2) [1 2 3] [0 1 1])]\n  (print (sum s)))&quot; &quot;(doseq [s (map #(- %1 %2) [1 2 3] [0 1 1])]\n  (print (+ s 1)))&quot; &quot;(doseq [s (map #(- %1 %2) [1 2 3] [0 1 1])])&quot; &quot;(doseq [s (map #(- %1 %2) [1 2 3] [0 1 1])] s)&quot; &quot;(map pow (map #(- %1 %2) [1 2 3] [0 1 1]) 2)&quot; &quot;(map pow [(map #(- %1 %2) [1 2 3] [0 1 1])] 2)&quot; &quot;(pow [2 2] 2)&quot; &quot;([(map #(- %1 %2) [1 2 3] [0 1 1])])&quot; &quot;(map (pow #(- %1 %2) 2) [1 2 3] [0 1 1])&quot; &quot;(map (* #(- %1 %2) #(- %1 %2)) [1 2 3] [0 1 1])&quot; &quot;(map #(- %1 %2) [1 2 3] [0 1 1])&quot; &quot;[1 2 3]&quot; &quot;(sum (map - [1 2 3] [0 1 1]))&quot; &quot;(apply sum (map - [1 2 3] [0 1 1]))&quot; &quot;(sum (vec (map - [1 2 3] [0 1 1])))&quot; &quot;(vec (map - [1 2 3] [0 1 1]))&quot; &quot;(sum [1 2 3])&quot; &quot;(+ [1 2 3])&quot; &quot;(+ 2 3)&quot; &quot;(apply + (vec (map - [1 2 3] [0 1 1])))&quot; &quot;( + (map - [1 2 3] [0 1 1]))&quot; &quot;(apply + (map pow (map - [1 2 3] [0 1 1]) 2))&quot; &quot;(apply + (apply map pow (map - [1 2 3] [0 1 1]) 2))&quot; &quot;(apply + (map - [1 2 3] [0 1 1]) #(pow % 2))&quot; &quot;(apply + (map #(pow % 2) - [1 2 3] [0 1 1]))&quot; &quot;(apply + (map #(pow % 2) [1 2 3] [0 1 1]))&quot; &quot;(map - [1 2 3] [0 1 1])&quot; &quot;(apply map #(pow % 2)  (1 2 3))&quot; &quot;(map #(apply pow % 2)  (1 2 3))&quot; &quot;(map #(pow % 2) (vec (1 2 3)))&quot; &quot;(map #(pow % 2) [1 2 3])&quot; &quot;(apply + (map - [1 2 3] [0 1 1]))&quot; &quot;(map #(pow % 2) (1 2 3))&quot; &quot;(+ (mapv - [1 2 3] [0 1 1]))&quot; &quot;(apply + (mapv - [1 2 3] [0 1 1]))&quot; &quot;(mapv - [1 2 3] [0 1 1])&quot; &quot;(map #(pow % 2) (mapv - [1 2 3] [0 1 1]))&quot; &quot;(mapv #(pow % 2) (mapv - [1 2 3] [0 1 1]))&quot; &quot;(apply + (mapv #(pow % 2) (mapv - [1 2 3] [0 1 1])))&quot; &quot;(defn extractFeature [thisMagnitudeSpectrum previousMagnitudeSpectrum] (\napply + (mapv #(pow % 2) (mapv - thisMagnitudeSpectrum previousMagnitudeSpectrum))\n))&quot; &quot;(extractFeature [1 2 3] [0 1 0])&quot;], :remote []}}</component>
   <component name="RunManager" selected="Clojure REPL.Leiningen">
+    <configuration default="false" name="ZeroCrossings" type="ClojureScriptRunConfiguration" factoryName="Clojure Script" temporary="true">
+      <module name="mir" />
+      <setting name="path" value="$PROJECT_DIR$/src/signal_processing/ZeroCrossings.clj" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="$PROJECT_DIR$/src/signal_processing" />
+      <setting name="repl" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
-      <module name="" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="PM_INSTALL_OPTIONS" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="DEBUGGER_TYPE" value="Java" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <Java />
-      <Profilers>
-        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
-        <option name="GAPID_ENABLED" value="false" />
-        <option name="GAPID_DISABLE_PCS" value="false" />
-        <option name="SUPPORT_LIB_ENABLED" value="true" />
-        <option name="INSTRUMENTATION_ENABLED" value="true" />
-      </Profilers>
-      <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="DEBUGGER_TYPE" value="Java" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <Java />
-      <Profilers>
-        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
-        <option name="GAPID_ENABLED" value="false" />
-        <option name="GAPID_DISABLE_PCS" value="false" />
-        <option name="SUPPORT_LIB_ENABLED" value="true" />
-        <option name="INSTRUMENTATION_ENABLED" value="true" />
-      </Profilers>
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -396,43 +290,6 @@
       <setting name="params" value="" />
       <setting name="workDir" value="" />
       <setting name="repl" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list />
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -489,32 +346,13 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
+    <configuration default="false" name="Unnamed" type="ClojureREPL" factoryName="Local">
+      <setting name="replType" value="1" />
+      <module name="mir" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="$PROJECT_DIR$" />
+      <setting name="profiles" value="" />
       <method />
     </configuration>
     <configuration default="false" name="Leiningen" type="ClojureREPL" factoryName="Local">
@@ -526,9 +364,16 @@
       <setting name="profiles" value="" />
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Clojure REPL.Leiningen" />
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Clojure REPL.Unnamed" />
+      <item index="1" class="java.lang.String" itemvalue="Clojure REPL.Leiningen" />
+      <item index="2" class="java.lang.String" itemvalue="Clojure Application.ZeroCrossings" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Clojure Application.ZeroCrossings" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -541,71 +386,49 @@
       <option name="presentableId" value="Default" />
       <updated>1484594892930</updated>
     </task>
-    <task id="LOCAL-00001" summary="added audio i/o">
-      <created>1487269248683</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1487269248683</updated>
-    </task>
-    <task id="LOCAL-00002" summary="added FFT implementation">
-      <created>1487471267774</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1487471267774</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
-    <editor active="false" />
+    <frame x="59" y="24" width="1861" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20274551" sideWeight="0.50208336" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33027524" sideWeight="0.64159054" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3078125" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5094035" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.35840946" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15677084" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20274551" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986567" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3985729" sideWeight="0.4981193" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="added audio i/o" />
-    <MESSAGE value="added FFT implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="added FFT implementation" />
-  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="2" />
-    </breakpoint-manager>
+    <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -615,32 +438,24 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/mir/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="45">
+          <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/import.clj">
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        <state relative-caret-position="465">
+          <caret line="31" column="17" lean-forward="true" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dsp/fft.clj">
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/audio.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -653,15 +468,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/import.clj">
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="71" column="34" lean-forward="true" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
+        <state relative-caret-position="795">
+          <caret line="53" column="29" lean-forward="true" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dsp/fft.clj">
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/ZeroCrossings.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -677,7 +492,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/import.clj">
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/ZeroCrossings.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -687,40 +510,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mir/core.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/import.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mir.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="9" />
+        <state relative-caret-position="390">
+          <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -732,7 +530,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/import.clj">
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -742,16 +540,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mir.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="9" />
+        <state relative-caret-position="390">
+          <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -763,26 +560,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/import.clj">
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="660">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mir.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="9" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -794,7 +590,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/import.clj">
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -804,43 +600,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mir.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
+        <state relative-caret-position="285">
           <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/signal_processing/mir/sp.clj" />
     <entry file="file://$PROJECT_DIR$/src/signal_processing/mir/import.clj" />
-    <entry file="file://$PROJECT_DIR$/mir.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.hgignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mir/core.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -849,42 +622,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dsp/fft.clj">
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="16" lean-forward="false" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+        <state relative-caret-position="660">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/encodings.clj">
+    <entry file="file://$PROJECT_DIR$/test/mir/core_test.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mir.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mir/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/import.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="17" lean-forward="false" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/audio.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/SpectralFlux.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/signal_processing/ZeroCrossings.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/numbers.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="59" lean-forward="true" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pending/fft.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="43" lean-forward="true" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/import.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="25" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="25" />
           <folding />
         </state>
       </provider>
