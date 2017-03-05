@@ -29,16 +29,15 @@
       (inverse-mel temp))
     ))
 
-
 ;Mel filtering
 (defn cbin [sample-rate frame-size low-filter-freq]
   (let [cbin-array (make-array Double/TYPE (+ num-mel-filters 2))]
-    (aset-double cbin-array 0 (Math/round (double (/ low-filter-freq (* sample-rate frame-size)))))
+    (aset-double cbin-array 0 (double (/ low-filter-freq (* sample-rate frame-size))))
     (aset-double cbin-array (- (count cbin-array) 1) (/ frame-size 2))
     (loop [i 1]
       (when (<= i num-mel-filters)
         (let [cf (center-freq i sample-rate low-filter-freq)]
-          (aset-double cbin-array i (Math/round (double (/ cf (* sample-rate frame-size))))))
+          (aset-double cbin-array i (double (/ cf (* sample-rate frame-size)))))
         (recur (+ i 1))
         )
       )
@@ -117,8 +116,7 @@
     ceps
     ))
 
-;TODO output is always the same!
-(let [ceps (cep-coefficients (. audio/base-format getSampleRate) 1024 64)]
+(comment let [ceps (cep-coefficients (. audio/base-format getSampleRate) 512 64)]
   (loop [i 0]
     (when (< i (count ceps))
       (println (aget ceps i))

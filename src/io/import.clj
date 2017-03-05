@@ -12,7 +12,7 @@
 (def files (. (File. dir) listFiles))
 
 ;get file path
-(def path (. (first files) getAbsolutePath))
+(def path (. (nth files 5) getAbsolutePath))
 
 ;load audio file
 (def file (File. path))
