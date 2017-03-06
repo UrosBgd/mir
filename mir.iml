@@ -13,11 +13,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Leiningen: cfft:0.1.0" level="project" />
     <orderEntry type="library" name="Leiningen: clojure-complete:0.2.4" level="project" />
     <orderEntry type="library" name="Leiningen: complex:0.1.8" level="project" />
+    <orderEntry type="library" name="Leiningen: mysql/mysql-connector-java:5.1.6" level="project" />
     <orderEntry type="library" name="Leiningen: org.apache.commons/commons-math3:3.5" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/clojure:1.8.0" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/java.jdbc:0.3.0" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/math.numeric-tower:0.0.2" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/tools.nrepl:0.2.12" level="project" />
   </component>

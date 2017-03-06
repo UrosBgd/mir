@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.clojure/math.numeric-tower:0.0.2">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/clojure/math.numeric-tower/0.0.2/math.numeric-tower-0.0.2.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
