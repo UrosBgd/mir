@@ -1,5 +1,5 @@
 (ns feature.mfcc
-  (:use [feature.spectrum :as spectrum])
+  (:use [feature.Spectrum :as spectrum])
   (:use [dsp.fft :as fft])
   (:require [io.import :as audio])
   )

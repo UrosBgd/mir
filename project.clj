@@ -7,7 +7,10 @@
                  [complex "0.1.8"]
                  [org.clojure/math.numeric-tower "0.0.2"]
                  [org.clojure/java.jdbc "0.3.0"]
-                 [mysql/mysql-connector-java "5.1.6"]]
+                 [mysql/mysql-connector-java "5.1.6"]
+                 [org.apache.mahout/mahout-core "0.5"]
+                 [org.apache.mahout/mahout-math "0.5"]
+                 [org.apache.mahout/mahout-utils "0.5"]]
   :main ^:skip-aot mir.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
