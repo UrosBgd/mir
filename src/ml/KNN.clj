@@ -97,7 +97,7 @@
   [example-file-path]
   (let [example-dataset (read-csv example-file-path ",")
         example-labels (map convert-example-labels (map last example-dataset))
-        example-observations (map #(into [] (map bigdec (butlast %))) example-dataset)]
+        example-observations (map #(into [] (map bigdec (butlast %))) (scale-csv-vector example-dataset))]
     (map parse-vector (map #(into [] %) (map cons example-labels example-observations)))))
 
 (defn euclidean-distance
@@ -131,13 +131,10 @@
 
 (defn normalization [vector]
   (let [min (apply min vector) max (apply max vector)]
-    (map #(with-precision 10 (/ (- % min) (- max min)) vector))))
+    (map #(with-precision 10 (/ (- % min) (- max min))) vector)))
 
 (defn normalization-x [matrix]
   (map #(normalization %) matrix))
-
-(defn scale-csv-vector [data]
-  (vec (apply map list (vec (normalization-x (butlast (apply map list data)))))))
 
 (defn scale-csv-vector [data]
   (vec (apply map list (vec (normalization-x (map #(map bigdec %) (butlast (apply map list data))))))))
