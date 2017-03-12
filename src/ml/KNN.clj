@@ -113,8 +113,10 @@
   (def k 5)
   ; Prediction on example dataset
   (def example-file-path "data/example.csv")
-  (def example-data (get-example-dataset example-file-path))
-  (def example-predictions (predict example-data example-data euclidean-distance k))
+  (def example-data (shuffle (get-example-dataset example-file-path)))
+  (def prediction-training-data (split-data example-data 0.2))
+  (def example-predictions (predict (prediction-training-data 1) (prediction-training-data 0) euclidean-distance k))
+  (performance example-predictions (map #(:label %) (prediction-training-data 0)))
   )
 
 (defn split-data
@@ -124,16 +126,18 @@
     [(take split-count data) (take-last (- (count data) split-count) data)]))
 
 (defn performance [predictions actual]
-  (/ (apply - (count predictions)
-          (map-indexed (fn [idx itm] (- itm (nth actual idx))) predictions))
+  (/ (get (frequencies (map-indexed (fn [idx itm] (- itm (nth (map #(:label %) (prediction-training-data 0)) idx))) example-predictions)) 0.0)
    (count predictions)))
 
 (defn normalization [vector]
   (let [min (apply min vector) max (apply max vector)]
-    (map #(/ (- % min) (- max min)) vector)))
+    (map #(with-precision 10 (/ (- % min) (- max min)) vector))))
 
 (defn normalization-x [matrix]
   (map #(normalization %) matrix))
 
 (defn scale-csv-vector [data]
   (vec (apply map list (vec (normalization-x (butlast (apply map list data)))))))
+
+(defn scale-csv-vector [data]
+  (vec (apply map list (vec (normalization-x (map #(map bigdec %) (butlast (apply map list data))))))))
