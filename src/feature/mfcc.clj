@@ -1,4 +1,4 @@
-(ns feature.mfcc
+(ns feature.Mfcc
   (:use [feature.Spectrum :as spectrum])
   (:use [dsp.fft :as fft])
   (:require [io.import :as audio])

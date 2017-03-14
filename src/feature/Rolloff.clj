@@ -1,4 +1,4 @@
-(ns signal-processing.Rolloff)
+(ns feature.Rolloff)
 
 
 (defn threshold [powSpectrum] (* (apply + powSpectrum) 0.85))

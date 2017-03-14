@@ -10,7 +10,8 @@
                  [mysql/mysql-connector-java "5.1.6"]
                  [org.apache.mahout/mahout-core "0.5"]
                  [org.apache.mahout/mahout-math "0.5"]
-                 [org.apache.mahout/mahout-utils "0.5"]]
+                 [org.apache.mahout/mahout-utils "0.5"]
+                 [net.mikera/core.matrix "0.57.0"]]
   :main ^:skip-aot mir.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

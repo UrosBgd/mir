@@ -1,4 +1,4 @@
-(ns feature.spectrum
+(ns feature.Spectrum
   (:use [util.numbers])
   (:use [dsp.fft])
   (:require [complex.core :as cx]))

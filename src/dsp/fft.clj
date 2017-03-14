@@ -46,11 +46,30 @@
           (twotimes
             (fft (odd samples))))))))
 
-(defn make-window [array size]
-  (take size array))
+(defn divide-into-windows [array window-size]
+  (partition window-size window-size nil array))
 
-(def window (into-array Short/TYPE (make-window audio/short-arr 4096)))
+(defn fft-all-windows [array window-size]
+  (let [windows (divide-into-windows array window-size)]
+    (loop [i 0
+           fft-data []]
+      (if (< i (count windows))
+        (recur (+ i 1)
+               (into fft-data (fft (nth windows i))))
+        fft-data)
+      )))
 
-(fft window)
+;(fft-all-windows (first audio/output) 4096)
 
+(defn fft-all-songs [array window-size]
+  (loop [i 0
+         all-data []]
+    (if (< i (count array))
+      (recur (+ i 1)
+             (into all-data (fft-all-windows (nth array i) window-size)))
+      all-data
+      )))
+
+;OutOfMemoryError Java heap space - I guess it should be done one by one, or some lazy seq (somehow)
+;(fft-all-songs audio/output 4096)
 

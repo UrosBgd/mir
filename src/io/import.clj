@@ -5,71 +5,65 @@
   (:import (javax.sound.sampled AudioInputStream AudioSystem AudioFormat AudioFormat$Encoding))
   )
 
-;def directory path
-(def dir "C:\\Users\\User\\Desktop\\dataset\\genres\\rock")
+(load-encodings)
 
-;get all files from directory
-(def files (. (File. dir) listFiles))
-
-;get file path
-(def path (. (nth files 5) getAbsolutePath))
-
-;load audio file
-(def file (File. path))
-
-;get new AudioInputStream from file
-(def in-audio-stream (AudioSystem/getAudioInputStream file))
-
-;get audio format
-(def base-format (. in-audio-stream getFormat))
-
-;define decoding format from input stream
-(def decoded-format (AudioFormat.
-                       mir.core/PCM_SIGNED
-                       (. base-format getSampleRate)
-                       16
-                       (. base-format getChannels)
-                       (* 2 (. base-format getChannels))
-                       (. base-format getSampleRate)
-                       false))
-
-;get decoded audio input stream
-(def decoded-audio-stream (. AudioSystem getAudioInputStream decoded-format in-audio-stream))
-
-;get input stream readable size
-(def stream-size (. decoded-audio-stream available))
-
-;def byte-array to store AudioInputStream
-(def byte-arr (make-array Byte/TYPE stream-size))
+(defn get-audio-files [dir]
+  (let [files (. (File. dir) listFiles)
+        paths (map #(. % getAbsolutePath) files)]
+    (map #(File. %) paths)))
 
 ;read bytes from input stream
-(defn read-bytes []
+(defn read-bytes [decoded-audio-stream byte-arr stream-size]
   (. decoded-audio-stream read byte-arr 0 stream-size))
 
+;define decoding format from input stream
+(defn get-decoded-format [base-format]
+  (AudioFormat.
+    mir.core/PCM_SIGNED
+    (. base-format getSampleRate)
+    16
+    (. base-format getChannels)
+    (* 2 (. base-format getChannels))
+    (. base-format getSampleRate)
+    false))
 
-;def short-array for storing input stream in shorts
-(def short-arr (make-array Short/TYPE (/ stream-size 2)))
-
-;data stream for converting byte to short
-(def data-stream (DataInputStream. (ByteArrayInputStream. byte-arr)))
-
-;convert byte-arr to short-arr
-(defn byte-to-short []
-  (loop [i 0]
-    (when (< i (/ stream-size 2))
-      (aset short-arr i (. data-stream readShort))
-      (recur (+ i 1))
+(defn get-bytes [files]
+  (loop [i 0
+         bytes []]
+    (if (< i (count files))
+      (let [file (nth files i)
+            in-audio-stream (AudioSystem/getAudioInputStream file)
+            base-format (. in-audio-stream getFormat)
+            decoded-format (get-decoded-format base-format)
+            decoded-audio-stream (. AudioSystem getAudioInputStream decoded-format in-audio-stream)
+            stream-size (. decoded-audio-stream available)
+            byte-arr (make-array Byte/TYPE stream-size)]
+        (read-bytes decoded-audio-stream byte-arr stream-size)
+        (recur (+ i 1)
+               (conj bytes byte-arr)))
+      bytes
       )
-    )
-  )
+    ))
 
-(comment loop [i 0]
-  (when (< i (/ stream-size 2))
-    (spit "short-array.txt" (str (aget short-arr i) "\n") :append true)
-    (recur (+ i 1))
-    )
-  )
+(defn get-shorts [bytes]
+  (loop [i 0
+         shorts []]
+    (if (< i 2)
+      (let [byte-arr (nth bytes i)
+            data-stream (DataInputStream. (ByteArrayInputStream. byte-arr))
+            short-arr (make-array Short/TYPE (/ (count byte-arr) 2))]
+        (loop [i 0]
+          (when (< i (count short-arr))
+            (aset short-arr i (. data-stream readShort))
+            (recur (+ i 1))
+            )
+          )
+        (recur (+ i 1)
+               (conj shorts short-arr))
+        )
+      shorts
+      )
+    ))
 
-(load-encodings)
-(read-bytes)
-(byte-to-short)
+(def dir "C:\\Users\\User\\Desktop\\dataset\\genres\\rock")
+(def output (get-shorts (get-bytes (get-audio-files dir))))

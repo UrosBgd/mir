@@ -1,4 +1,4 @@
-(ns signal-processing.ConstantQ)
+(ns feature.ConstantQ)
 
 (def alpha 1.0)
 (def  hammingFactor (/ 25.0 46.0))

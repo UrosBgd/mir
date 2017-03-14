@@ -8,7 +8,7 @@
 (defn get-title [song]
   (if (. song contains "-")
     (. (first (. (second (. song split "-")) split "\\.")) trim)
-    (. (reduce str (butlast (. "rock.00005.au" split "\\."))) trim)))
+    (. (reduce str (butlast (. song split "\\."))) trim)))
 
 
 (get-title "Liem - If Only.mp3")

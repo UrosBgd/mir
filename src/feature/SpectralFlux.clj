@@ -2,6 +2,6 @@
 
 (defn pow [b e] (Math/pow b e))
 
-(defn extractFeature [thisMagnitudeSpectrum previousMagnitudeSpectrum] (
-  apply + (mapv #(pow % 2) (mapv - thisMagnitudeSpectrum previousMagnitudeSpectrum))
+(defn extractFeature [thisMagSpec prevMagSpec] (
+  apply + (mapv #(pow % 2) (mapv - thisMagSpec prevMagSpec))
 ))
