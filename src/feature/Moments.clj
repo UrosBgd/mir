@@ -1,26 +1,51 @@
-(ns feature.Moments)
+(ns feature.Moments
+  (:require [util.statistics :as stats]
+            [dsp.fft :as dsp]
+            [feature.Spectrum :as spectrum]))
 
-(defn extractFeature [magnitudes]
-  (let [scale (getScale magnitudes)
-        mean (getMean magnitudes scale)
-        centroid (getSpectralCentroid mean)
-        skewness (getSkewness mean centroid)
-        kurtosis (getKurtosis mean centroid skewness)]
-    [scale mean centroid skewness kurtosis]))
-
-(defn getScale [magnitudes]
+(defn get-scale [magnitudes]
   (apply + magnitudes))
 
-(defn getMean [magnitudes scale]
+(defn get-mean [magnitudes scale]
   (apply + (map-indexed (fn [index e] (* (/ e scale) (inc index))) (rest magnitudes))))
 
-(defn getSpectralCentroid [mean]
+(defn get-spectral-centroid [mean]
   (- mean (* mean mean)))
 
-(defn getSkewness [mean centroid]
+(defn get-skewness [mean centroid]
   (- (* 2 (Math/pow (- mean) 3)) (* 3 mean centroid) (- centroid)))
 
-(defn getKurtosis [mean centroid skewness]
+(defn get-kurtosis [mean centroid skewness]
   (+ (* -3 (Math/pow (- mean) 4)) (* 6 mean mean centroid) (* -4 mean skewness) mean))
+
+(defn get-moments [audio]
+  (let [fft (dsp.fft/fft-audio audio 4096)
+        magnitudes (map #(spectrum/magnitude-spectrum %) fft)
+        scale (map #(get-scale %) magnitudes)
+        mean (map #(get-mean %1 %2) magnitudes scale)
+        centroid (map #(get-spectral-centroid %) mean)
+        ;skewness (get-skewness mean centroid)
+        ;kurtosis (get-kurtosis mean centroid skewness)
+        ]
+    {:scale scale :mean mean :centroid centroid
+     ;:skewness skewness :kurtosis kurtosis
+     }
+    ))
+
+(defn get-stats [audio]
+  (let [moments (get-moments audio)
+        scale-mean (stats/mean (:scale moments))
+        scale-std (stats/std (:scale moments))
+        mean-mean (stats/mean (:mean moments))
+        mean-std (stats/std (:mean moments))
+        centroid-mean (stats/mean (:centroid moments))
+        centroid-std (stats/std (:centroid moments))]
+    {:scale {:mean scale-mean :std scale-std}
+     :mean {:mean mean-mean :std mean-std}
+     :centroid {:mean centroid-mean :std centroid-std}}
+    ))
+
+
+
 
 

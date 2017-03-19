@@ -1,7 +1,8 @@
 (ns feature.Mfcc
   (:use [feature.Spectrum :as spectrum])
-  (:use [dsp.fft :as fft])
-  (:require [io.import :as audio])
+  (:require [dsp.fft :as dsp]
+            [io.import :as audio]
+            [util.statistics :as stats])
   )
 
 (def num-mel-filters 23)
@@ -11,8 +12,8 @@
 ;(def sample-rate (. audio/base-format getSampleRate))
 
 ;Magnitude spectrum
-(defn bin []
-  (magnitude-spectrum (fft window)))
+(defn bin [window]
+  (magnitude-spectrum (dsp/fft window)))
 
 (defn freq-to-mel [freq]
   (* 2595 (/ (Math/log (+ 1 (/ freq 700))) (Math/log 10))))
@@ -45,8 +46,8 @@
     ))
 
 ;Mel filterbank TODO refactor
-(defn fbank [sample-rate frame-size low-filter-freq]
-  (let [bin-data (bin)
+(defn fbank [window sample-rate frame-size low-filter-freq]
+  (let [bin-data (bin window)
         cbin-data (cbin sample-rate frame-size low-filter-freq)
         temp (make-array Double/TYPE (+ num-mel-filters 2))
         fbank-data (make-array Double/TYPE num-mel-filters)]
@@ -77,14 +78,13 @@
         (recur (+ x 1))
         )
       )
-
     fbank-data
     )
   )
 
 ;Non-Linear transformation
-(defn non-linear-transform [sample-rate frame-size low-filter-freq]
-  (let [fbank-data (fbank sample-rate frame-size low-filter-freq)
+(defn non-linear-transform [window sample-rate frame-size low-filter-freq]
+  (let [fbank-data (fbank window sample-rate frame-size low-filter-freq)
         nlt (make-array Double/TYPE (count fbank-data))
         floor -50]
     (loop [i 0]
@@ -99,8 +99,8 @@
     ))
 
 ;Cep coefficients
-(defn cep-coefficients [sample-rate frame-size low-filter-freq]
-  (let [data (non-linear-transform sample-rate frame-size low-filter-freq)
+(defn cep-coefficients [window sample-rate frame-size low-filter-freq]
+  (let [data (non-linear-transform window sample-rate frame-size low-filter-freq)
         ceps (make-array Double/TYPE num-cepstra)]
     (loop [i 0]
       (when (< i num-cepstra)
@@ -113,14 +113,16 @@
         (recur (+ i 1))
         )
       )
-    ceps
+    (vec ceps)
     ))
 
-(comment let [ceps (cep-coefficients (. audio/base-format getSampleRate) 512 64)]
-  (loop [i 0]
-    (when (< i (count ceps))
-      (println (aget ceps i))
-      (recur (+ i 1))
-      ))
-  )
+(defn get-stats [audio]
+  (let [windows (partition 4096 4096 nil audio)
+        ceps (flatten (map #(cep-coefficients % 22050 4096 64) (butlast windows)))
+        mean (stats/mean ceps)
+        std (stats/std ceps)]
+    {:mean mean
+     :std std}
+    ))
+
 

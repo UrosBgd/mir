@@ -30,5 +30,5 @@
     output-magnitude
     ))
 
-(nth (power-spectrum (fft window)) 10)
-(nth (magnitude-spectrum (fft window)) 10)
+;(nth (power-spectrum (fft window)) 10)
+;(nth (magnitude-spectrum (fft window)) 10)

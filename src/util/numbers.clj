@@ -29,3 +29,6 @@
 
 (defn power [complex]
   (* (cx/abs complex) (cx/abs complex)))
+
+(defn get-real [array]
+  (map #(cx/real-part %) array))
