@@ -18,9 +18,8 @@
 (defn get-kurtosis [mean centroid skewness]
   (+ (* -3 (Math/pow (- mean) 4)) (* 6 mean mean centroid) (* -4 mean skewness) mean))
 
-(defn get-moments [audio]
-  (let [fft (dsp.fft/fft-audio audio 4096)
-        magnitudes (map #(spectrum/magnitude-spectrum %) fft)
+(defn get-moments [fft]
+  (let [magnitudes (map #(spectrum/magnitude-spectrum %) fft)
         scale (map #(get-scale %) magnitudes)
         mean (map #(get-mean %1 %2) magnitudes scale)
         centroid (map #(get-spectral-centroid %) mean)
@@ -32,8 +31,8 @@
      }
     ))
 
-(defn get-stats [audio]
-  (let [moments (get-moments audio)
+(defn get-stats [fft]
+  (let [moments (get-moments fft)
         scale-mean (stats/mean (:scale moments))
         scale-std (stats/std (:scale moments))
         mean-mean (stats/mean (:mean moments))

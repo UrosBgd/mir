@@ -13,7 +13,7 @@
 
 ;Magnitude spectrum
 (defn bin [window]
-  (magnitude-spectrum (dsp/fft window)))
+  (magnitude-spectrum window))
 
 (defn freq-to-mel [freq]
   (* 2595 (/ (Math/log (+ 1 (/ freq 700))) (Math/log 10))))
@@ -116,9 +116,8 @@
     (vec ceps)
     ))
 
-(defn get-stats [audio]
-  (let [windows (partition 4096 4096 nil audio)
-        ceps (flatten (map #(cep-coefficients % 22050 4096 64) (butlast windows)))
+(defn get-stats [fft]
+  (let [ceps (flatten (map #(cep-coefficients % 22050 4096 64) (butlast fft)))
         mean (stats/mean ceps)
         std (stats/std ceps)]
     {:mean mean

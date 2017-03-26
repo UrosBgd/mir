@@ -52,23 +52,18 @@
     (mapv #(Math/sqrt %) (vec (apply map + (split-at 3 (mapv #(* % %) (mapv #(apply + %)
                                                                             (mapv #(vec (map-indexed (fn [i e] (* e (nth samples i))) %)) kernels)))))))))
 
-(defn get-loq-cq [constantQ]
+(defn get-log-cq [constantQ]
   (map #(if (<= % 0.0) -50.0 (if (< (Math/log %) -50.0) -50.0 (Math/log %))) constantQ))
 
 
 (defn get-cq-stats [samples sample-rate]
-  (let [data (flatten (map #(get-cq (num/get-real %) sample-rate) samples))
-        mean (stats/mean data)
-        std (stats/std data)]
-    {:mean mean
-     :std std}
-    ))
-
-(defn get-log-stats [samples sample-rate]
-  (let [cq (map #(get-cq (num/get-real %) sample-rate) samples)
-        data (flatten (map #(get-loq-cq %) cq))
-        mean (stats/mean data)
-        std (stats/std data)]
-    {:mean mean
-     :std std}
+  (let [windows (take-nth 4 (partition 256 256 nil samples))
+        cq (map #(get-cq % sample-rate) windows)
+        log (map #(get-log-cq %) cq)
+        cq-means (map #(stats/mean %) cq)
+        log-means (map #(stats/mean %) log)]
+    {:cq {:mean (stats/mean cq-means)
+          :std (stats/std cq-means)}
+     :log {:mean (stats/mean log-means)
+           :std (stats/std log-means)}}
     ))

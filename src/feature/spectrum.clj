@@ -1,7 +1,8 @@
 (ns feature.Spectrum
   (:use [util.numbers])
   (:use [dsp.fft])
-  (:require [complex.core :as cx]))
+  (:require [complex.core :as cx]
+            [util.statistics :as stats]))
 
 (defn power-spectrum [fft-data]
   (let [size (count fft-data)
@@ -16,7 +17,6 @@
     output-power
     ))
 
-
 (defn magnitude-spectrum [fft-data]
   (let [size (count fft-data)
         number-unfolded-bins (/ size 2)
@@ -30,5 +30,19 @@
     output-magnitude
     ))
 
-;(nth (power-spectrum (fft window)) 10)
-;(nth (magnitude-spectrum (fft window)) 10)
+(defn get-mag-stats [fft]
+  (let [magnitudes (flatten (map #(magnitude-spectrum %) fft))
+        data (map #(vec %) magnitudes)
+        means (map #(stats/mean %) data)        ]
+    {:mean (stats/mean means)
+     :std (stats/std means)}
+    ))
+
+(defn get-power-stats [fft]
+  (let [power (flatten (map #(power-spectrum %) fft))
+        data (map #(vec %) power)
+        means (map #(stats/mean %) data)]
+    {:mean (stats/mean means)
+     :std (stats/std means)}
+    ))
+

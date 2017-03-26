@@ -1,5 +1,4 @@
 (ns util.csv
-  ;(:require [feature.mfcc :as mfcc])
   (:require [clojure.core.matrix :as matrix])
   )
 
@@ -19,7 +18,7 @@
 
 ;because songs for each feature in .csv are written top-to-bottom, and it's hard to append data for next feature to the right,
 ;a row of n features is formated for each song (@ index) so it can be appended as a new line
-(defn format-row [data-matrix index]
+(comment defn format-row [data-matrix index]
   (loop [i 0
          formated-row []]
     (if (< i (count data-matrix))
@@ -29,7 +28,7 @@
       )
     ))
 
-(defn write-features [labels data-matrix filename]
+(comment defn write-features [labels data-matrix filename]
   (write-line labels filename)
    (loop [i 0]
      (when (< i (count data-matrix))
@@ -40,13 +39,6 @@
      )
   )
 
-(write-features test-labels test-data "test")
-
-(def test-data [[1 2 3]
-                [1 2 3]
-                [1 2 3]])
-
-(def test-labels ["label1" "label2" "label3"])
 
 
 

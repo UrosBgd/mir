@@ -5,38 +5,68 @@
             [dsp.fft :as dsp]
             [util.numbers :as num]
             [util.statistics :as stats]
+            [util.csv :as csv]
             [feature.ConstantQ :as cq]
-            [feature.LogConstantQ :as logCq]
             [feature.Mfcc :as mfcc]
             [feature.Moments :as moments]
             [feature.Rolloff :as rolloff]
-   )
-  )
+            [feature.SpectralFlux :as flux]
+            [feature.Spectrum :as spec]
+            [feature.ZeroCrossings :as cross]))
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
   (println "Hello, World!"))
 
-(def src "C:\\Users\\User\\Desktop\\dataset\\genres\\rock")
+(def src [{:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\rock" :name "rock"}
+          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\reggae" :name "reggae"}
+          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\pop" :name "pop"}
+          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\metal" :name "metal"}
+          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\jazz" :name "jazz"}])
 
 (defn get-audio-files [dir]
   (let [files (. (File. dir) listFiles)
         paths (map #(. % getAbsolutePath) files)]
     (map #(File. %) paths)))
 
-(def output (in/get-shorts (in/get-bytes (first (get-audio-files src)))))
-(def fft-output (dsp/fft-audio output 4096))
-(def first-window (take 4096 output))
-(def fft-window (dsp/fft first-window))
+(defn write-row [audio genre]
+  (let [output (in/get-shorts (in/get-bytes audio))
+        fft (dsp/fft-audio output 4096)
+        cq (cq/get-cq-stats output 22050)
+        mfcc (mfcc/get-stats fft)
+        moments (moments/get-stats fft)
+        rolloff (rolloff/get-stats fft)
+        flux (flux/get-stats fft)
+        magnitude (spec/get-mag-stats fft)
+        power (spec/get-power-stats fft)
+        crossings (cross/get-stats fft)
+        line [(:mean (:cq cq)) (:std (:cq cq))
+              (:mean (:log cq)) (:std (:log cq))
+              (:mean mfcc) (:std mfcc)
+              (:mean (:scale moments)) (:std (:scale moments))
+              (:mean (:mean moments)) (:std (:mean moments))
+              (:mean (:centroid moments)) (:std (:centroid moments))
+              (:mean rolloff) (:std rolloff)
+              (:mean flux) (:std flux)
+              (:mean magnitude) (:std magnitude)
+              (:mean power) (:std power)
+              (:mean crossings) (:std crossings)
+              genre]]
+    (csv/write-line line "features")))
 
-;(cq/get-cq-stats fft-output 22050)
-;(cq/get-log-stats fft-output 22050)
-;(mfcc/get-stats output)
-;(:scale (moments/get-stats output))
-;(:mean (moments/get-stats output))
-;(:centroid (moments/get-stats output))
-;(rolloff/get-stats output)
+(defn write-features [dir genre]
+  (let [files (get-audio-files dir)]
+    (loop [i 0]
+      (if (< i (count files))
+        (write-row (nth files i) genre))
+      (recur (+ i 1)))))
+
+(comment loop [i 0]
+  (if (< i (count src))
+    (write-features (:dir (nth src i)) (:name (nth src i))))
+  (recur (+ i 1)))
+
 
 
 

@@ -6,9 +6,8 @@
   (* (apply + pow-spectrum) 0.85))
 
 (def get-rolloff
-  (fn [audio]
-    (let [fft (dsp.fft/fft-audio audio 4096)
-          pow-spectrum (map #(spectrum/power-spectrum %) fft)
+  (fn [fft]
+    (let [pow-spectrum (map #(spectrum/power-spectrum %) fft)
           threshold (map #(threshold %) pow-spectrum)
           rolloff (map #(loop [i %1 total 0]
                           (let [[f & other] i]
@@ -17,8 +16,8 @@
       rolloff
       )))
 
-(defn get-stats [audio]
-  (let [rolloff (get-rolloff audio)
+(defn get-stats [fft]
+  (let [rolloff (get-rolloff fft)
         mean (stats/mean rolloff)
         std (stats/std rolloff)]
     {:mean mean

@@ -49,12 +49,11 @@
 (defn divide-into-windows [array window-size]
   (partition window-size window-size nil array))
 
-;TODO loop through all windows (now it's first 3 for easier testing)
 (defn fft-audio [song window-size]
   (let [windows (divide-into-windows song window-size)]
     (loop [i 0
            fft-data []]
-      (if (< i 3)
+      (if (< i (count windows))
         (recur (+ i 1)
                (into fft-data [(fft (nth windows i))]))
         fft-data)
