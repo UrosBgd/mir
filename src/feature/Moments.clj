@@ -1,4 +1,5 @@
 (ns feature.Moments
+  "Represents first 5 statistical moments methods: mean, variance, normalised moments, skewness and kurtosis."
   (:require [util.statistics :as stats]
             [dsp.fft :as dsp]
             [feature.Spectrum :as spectrum]))

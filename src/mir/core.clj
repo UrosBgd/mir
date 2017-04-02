@@ -1,4 +1,5 @@
 (ns mir.core
+  "Calculates mean and standard deviation for every feature from namespace feature. Change dir location."
   (:gen-class)
   (:import (java.io File))
   (:require [io.import :as in]
@@ -15,15 +16,18 @@
             [feature.ZeroCrossings :as cross]))
 
 (defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+  [& args])
 
 (def src [{:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\rock" :name "rock"}
           {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\reggae" :name "reggae"}
           {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\pop" :name "pop"}
           {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\metal" :name "metal"}
-          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\jazz" :name "jazz"}])
+          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\jazz" :name "jazz"}
+          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\hiphop" :name "hiphop"}
+          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\disco" :name "disco"}
+          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\country" :name "country"}
+          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\classical" :name "classical"}
+          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\blues" :name "blues"}])
 
 (defn get-audio-files [dir]
   (let [files (. (File. dir) listFiles)

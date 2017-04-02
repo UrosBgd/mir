@@ -1,4 +1,5 @@
 (ns feature.Spectrum
+  "Calculates both power spectrum and magnitude spectrum for FFT."
   (:use [util.numbers])
   (:use [dsp.fft])
   (:require [complex.core :as cx]

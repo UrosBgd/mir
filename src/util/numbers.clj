@@ -1,4 +1,5 @@
 (ns util.numbers
+  "Numbers helper functions."
   (:require [complex.core :as cx]))
 
 (defn number-of-decimals [decimal]

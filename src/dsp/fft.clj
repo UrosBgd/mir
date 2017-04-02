@@ -1,4 +1,5 @@
 (ns dsp.fft
+  "Calculates Fast Fourier transform"
   (:use [util.numbers])
   (:require [complex.core :as cx])
   (:require [clojure.math.numeric-tower :as math])

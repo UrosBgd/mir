@@ -1,4 +1,5 @@
 (ns feature.ConstantQ
+  "Similary to FFT, ConstantQ transforms data series to frequency domain, using logarithmic functions."
   (:require [util.numbers :as num]
             [util.statistics :as stats]))
 

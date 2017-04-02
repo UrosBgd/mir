@@ -1,4 +1,5 @@
 (ns io.import
+  "Decodes audio stream and reads it in bytes and shorts."
   (:use [util.numbers])
   (:import (java.io ByteArrayInputStream DataInputStream))
   (:import (javax.sound.sampled AudioInputStream AudioSystem AudioFormat AudioFormat$Encoding))

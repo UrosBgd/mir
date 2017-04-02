@@ -1,4 +1,5 @@
 (ns feature.Mfcc
+  "Mel-frequency cepstral coefficients represents short-term power spectrum."
   (:use [feature.Spectrum :as spectrum])
   (:require [dsp.fft :as dsp]
             [io.import :as audio]

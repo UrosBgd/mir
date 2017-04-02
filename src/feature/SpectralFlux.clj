@@ -1,4 +1,5 @@
 (ns feature.SpectralFlux
+  "Spectral Flux mesures changing quickness of power spectrum between two neighbor frames."
   (:require [feature.Spectrum :as spectrum]
             [util.statistics :as stats]))
 

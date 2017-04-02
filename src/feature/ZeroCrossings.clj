@@ -1,4 +1,5 @@
 (ns feature.ZeroCrossings
+  "ZeroCrossings shows how many times signal changes between positive and negative."
   (:require [dsp.fft :as dsp]
             [util.numbers :as num]
             [util.statistics :as stats]))

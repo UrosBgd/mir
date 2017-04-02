@@ -1,4 +1,5 @@
 (ns feature.Rolloff
+  "Rolloff measures amount of the right skewedness of power spectrum."
   (:require [feature.Spectrum :as spectrum]
             [util.statistics :as stats]))
 

@@ -1,6 +1,8 @@
 (ns ml.KNN
+  "Implementation of k-NN classification algorithm."
   (:require [clojure.java.io :as io]
-            [clojure.string :as string]))
+            [clojure.string :as string]
+            [util.statistics :as stats]))
 
 ; Observation is the abstraction layer that captures observation with label
 (defstruct observation :label :observation)
@@ -97,7 +99,7 @@
   [example-file-path]
   (let [example-dataset (read-csv example-file-path ",")
         example-labels (map convert-example-labels (map last example-dataset))
-        example-observations (map #(into [] (map bigdec (butlast %))) (scale-csv-vector example-dataset))]
+        example-observations (map #(into [] (map bigdec (butlast %))) (stats/scale-csv-vector example-dataset))]
     (map parse-vector (map #(into [] %) (map cons example-labels example-observations)))))
 
 (defn euclidean-distance
@@ -114,27 +116,7 @@
   ; Prediction on example dataset
   (def example-file-path "data/example.csv")
   (def example-data (shuffle (get-example-dataset example-file-path)))
-  (def prediction-training-data (split-data example-data 0.2))
+  (def prediction-training-data (stats/split-data example-data 0.2))
   (def example-predictions (predict (prediction-training-data 1) (prediction-training-data 0) euclidean-distance k))
   (performance example-predictions (map #(:label %) (prediction-training-data 0)))
   )
-
-(defn split-data
-  ; split-percentage example 0.2
-  [data split-percentage]
-  (let [split-count (int (Math/floor (* (count data) split-percentage)))]
-    [(take split-count data) (take-last (- (count data) split-count) data)]))
-
-(defn performance [predictions actual]
-  (/ (get (frequencies (map-indexed (fn [idx itm] (- itm (nth (map #(:label %) (prediction-training-data 0)) idx))) example-predictions)) 0.0)
-   (count predictions)))
-
-(defn normalization [vector]
-  (let [min (apply min vector) max (apply max vector)]
-    (map #(with-precision 10 (/ (- % min) (- max min))) vector)))
-
-(defn normalization-x [matrix]
-  (map #(normalization %) matrix))
-
-(defn scale-csv-vector [data]
-  (vec (apply map list (vec (normalization-x (map #(map bigdec %) (butlast (apply map list data))))))))
