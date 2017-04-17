@@ -16,7 +16,7 @@
   (let [split-count (int (Math/floor (* (count data) split-percentage)))]
     [(take split-count data) (take-last (- (count data) split-count) data)]))
 
-(defn performance [predictions actual]
+(defn performance [predictions actual prediction-training-data example-predictions]
   (/ (get (frequencies (map-indexed (fn [idx itm] (- itm (nth (map #(:label %) (prediction-training-data 0)) idx))) example-predictions)) 0.0)
      (count predictions)))
 
