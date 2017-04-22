@@ -4,8 +4,6 @@
             [clojure.string :as string]
             [util.statistics :as stats]))
 
-;; parts of this code are taken from https://github.com/bugra/knn
-
 ; Observation is the abstraction layer that captures observation with label
 (defstruct observation :label :observation)
 
@@ -120,5 +118,5 @@
   (def example-data (shuffle (get-example-dataset example-file-path)))
   (def prediction-training-data (stats/split-data example-data 0.2))
   (def example-predictions (predict (prediction-training-data 1) (prediction-training-data 0) euclidean-distance k))
-  (stats/performance example-predictions (map #(:label %) (prediction-training-data 0)) prediction-training-data example-predictions)
+  (performance example-predictions (map #(:label %) (prediction-training-data 0)) prediction-training-data example-predictions)
   )
