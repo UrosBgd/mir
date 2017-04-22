@@ -1,10 +1,11 @@
 (ns dsp.fft
   "Calculates Fast Fourier transform"
   (:use [util.numbers])
-  (:require [complex.core :as cx])
-  (:require [clojure.math.numeric-tower :as math])
-  (:require [io.import :as audio])
-  )
+  (:require [complex.core :as cx]
+            [clojure.math.numeric-tower :as math]
+            [io.import :as audio]))
+
+;; parts of this code are taken from https://github.com/pchmielowski/Clojure-FFT
 
 (def i (cx/complex 0 1))
 
@@ -47,10 +48,10 @@
           (twotimes
             (fft (odd samples))))))))
 
-(defn divide-into-windows [array window-size]
+(defn divide-into-windows [^shorts array window-size]
   (partition window-size window-size nil array))
 
-(defn fft-audio [song window-size]
+(defn fft-audio [^shorts song window-size]
   (let [windows (divide-into-windows song window-size)]
     (loop [i 0
            fft-data []]

@@ -4,10 +4,10 @@
             [dsp.fft :as dsp]
             [feature.Spectrum :as spectrum]))
 
-(defn get-scale [magnitudes]
+(defn get-scale [^doubles magnitudes]
   (apply + magnitudes))
 
-(defn get-mean [magnitudes scale]
+(defn get-mean [^doubles magnitudes scale]
   (apply + (map-indexed (fn [index e] (* (/ e scale) (inc index))) (rest magnitudes))))
 
 (defn get-spectral-centroid [mean]

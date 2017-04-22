@@ -7,13 +7,13 @@
             [util.numbers :as num]
             [util.statistics :as stats]
             [util.csv :as csv]
-            [feature.ConstantQ :as cq]
             [feature.Mfcc :as mfcc]
             [feature.Moments :as moments]
             [feature.Rolloff :as rolloff]
             [feature.SpectralFlux :as flux]
             [feature.Spectrum :as spec]
-            [feature.ZeroCrossings :as cross]))
+            [feature.ZeroCrossings :as cross]
+            [feature.ConstantQ2 :as cq2]))
 
 (defn -main
   [& args])
@@ -37,7 +37,7 @@
 (defn write-row [audio genre]
   (let [output (in/get-shorts (in/get-bytes audio))
         fft (dsp/fft-audio output 4096)
-        cq (cq/get-cq-stats output 22050)
+        cq (cq2/get-cq-stats output 22050)
         mfcc (mfcc/get-stats fft)
         moments (moments/get-stats fft)
         rolloff (rolloff/get-stats fft)
@@ -57,21 +57,16 @@
               (:mean power) (:std power)
               (:mean crossings) (:std crossings)
               genre]]
-    (csv/write-line line "features")))
+    (csv/write-line line genre)))
 
 (defn write-features [dir genre]
   (let [files (get-audio-files dir)]
     (loop [i 0]
       (if (< i (count files))
-        (write-row (nth files i) genre))
+        (time (write-row (nth files i) genre)))
       (recur (+ i 1)))))
 
-(comment loop [i 0]
+(loop [i 0]
   (if (< i (count src))
     (write-features (:dir (nth src i)) (:name (nth src i))))
   (recur (+ i 1)))
-
-
-
-
-

@@ -34,7 +34,7 @@
 (defn get-mag-stats [fft]
   (let [magnitudes (flatten (map #(magnitude-spectrum %) fft))
         data (map #(vec %) magnitudes)
-        means (map #(stats/mean %) data)        ]
+        means (map #(stats/mean %) data)]
     {:mean (stats/mean means)
      :std (stats/std means)}
     ))

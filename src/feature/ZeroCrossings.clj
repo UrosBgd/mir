@@ -4,8 +4,6 @@
             [util.numbers :as num]
             [util.statistics :as stats]))
 
-;(defn extractFeature [samples] (filter (fn [sample] ( sample > 0.0)) samples))
-
 (defn is-cross-point [a b]
   (if (or
         (and (> a 0) (< b 0))

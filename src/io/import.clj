@@ -27,19 +27,16 @@
             byte-arr (make-array Byte/TYPE stream-size)]
         (read-bytes decoded-audio-stream byte-arr stream-size)
         byte-arr
-      )
-    )
+      ))
 
 (defn get-shorts [bytes]
       (let [data-stream (DataInputStream. (ByteArrayInputStream. bytes))
             short-arr (make-array Short/TYPE (/ (count bytes) 2))]
         (loop [i 0]
           (when (< i (count short-arr))
-            (aset short-arr i (. data-stream readShort))
+            (aset-short short-arr i (. data-stream readShort))
             (recur (+ i 1))
             )
           )
         short-arr
-        )
-      )
-
+      ))

@@ -3,13 +3,13 @@
   (:require [feature.Spectrum :as spectrum]
             [util.statistics :as stats]))
 
-(defn threshold [pow-spectrum]
+(defn threshold [^doubles pow-spectrum]
   (* (apply + pow-spectrum) 0.85))
 
 (def get-rolloff
   (fn [fft]
-    (let [pow-spectrum (map #(spectrum/power-spectrum %) fft)
-          threshold (map #(threshold %) pow-spectrum)
+    (let [^doubles pow-spectrum (map #(spectrum/power-spectrum %) fft)
+          ^doubles threshold (map #(threshold %) pow-spectrum)
           rolloff (map #(loop [i %1 total 0]
                           (let [[f & other] i]
                             (cond (>= (+ total f) %2) (/ f (count %))
