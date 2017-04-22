@@ -63,10 +63,10 @@
   (let [files (get-audio-files dir)]
     (loop [i 0]
       (if (< i (count files))
-        (time (write-row (nth files i) genre)))
+        (write-row (nth files i) genre))
       (recur (+ i 1)))))
 
-(loop [i 0]
-  (if (< i (count src))
-    (write-features (:dir (nth src i)) (:name (nth src i))))
-  (recur (+ i 1)))
+;(loop [i 0]
+;  (if (< i (count src))
+;    (write-features (:dir (nth src i)) (:name (nth src i))))
+;  (recur (+ i 1)))

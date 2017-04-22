@@ -118,5 +118,5 @@
   (def example-data (shuffle (get-example-dataset example-file-path)))
   (def prediction-training-data (stats/split-data example-data 0.2))
   (def example-predictions (predict (prediction-training-data 1) (prediction-training-data 0) euclidean-distance k))
-  (performance example-predictions (map #(:label %) (prediction-training-data 0)) prediction-training-data example-predictions)
+  (stats/performance example-predictions (map #(:label %) (prediction-training-data 0)) prediction-training-data example-predictions)
   )
