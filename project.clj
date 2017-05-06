@@ -10,7 +10,8 @@
                  [mysql/mysql-connector-java "5.1.6"]
                  [net.mikera/core.matrix "0.57.0"]
                  [prismatic/hiphip "0.2.1"]
-                 [net.mikera/vectorz-clj "0.46.0"]]
+                 [net.mikera/vectorz-clj "0.46.0"]
+                 [criterium "0.4.4"]]
   :main ^:skip-aot mir.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

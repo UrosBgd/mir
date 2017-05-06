@@ -29,14 +29,13 @@
         byte-arr
       ))
 
-(defn get-shorts [bytes]
-      (let [data-stream (DataInputStream. (ByteArrayInputStream. bytes))
-            short-arr (make-array Short/TYPE (/ (count bytes) 2))]
+(defn get-shorts [^bytes bytes]
+      (let [length (/ (alength bytes) 2)
+            data-stream (DataInputStream. (ByteArrayInputStream. bytes))
+            short-arr (make-array Short/TYPE length)]
         (loop [i 0]
-          (when (< i (count short-arr))
+          (when (< i length)
             (aset-short short-arr i (. data-stream readShort))
-            (recur (+ i 1))
-            )
-          )
+            (recur (+ i 1))))
         short-arr
       ))

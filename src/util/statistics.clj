@@ -2,8 +2,15 @@
   "Implementation of statistical functions needed for feature extraction."
   (:require [hiphip.double :as dbl]))
 
+(set! *warn-on-reflection* true)
+
 (defn doubles-mean [^doubles array]
-    (/ (dbl/asum array) (count array)))
+    (dbl/amean array))
+
+(defn doubles-std [^doubles array]
+  (let [mean (dbl/amean array)
+        square-diff-sum (dbl/asum [x array] (Math/pow (- x mean) 2))]
+    (/ square-diff-sum (dbl/alength array))))
 
 (defn mean [array]
   (/ (reduce + array) (count array)))
