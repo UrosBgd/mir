@@ -3,11 +3,11 @@
   (:use [util.numbers])
   (:require [io.import :as audio]))
 
-(defn next-binary-index [index half-length]
+(defn next-binary-index ^long [^long index ^long half-length]
   (loop [i index
          position half-length]
     (if (and (>= i position) (>= position 1))
-      (recur (- i position) (/ position 2))
+      (recur (- i position) (unchecked-divide-int position 2))
       (+ i position))
     ))
 
@@ -30,7 +30,7 @@
       )))
 
 (defn recombination [^doubles real-array ^doubles imag-array]
-  (let [halft-length (/ (alength real-array) 2)]
+  (let [halft-length (unchecked-divide-int (alength real-array) 2)]
     (loop [max-spectra-for-stage 1
            step-size 2]
       (if (< max-spectra-for-stage halft-length)
