@@ -15,6 +15,8 @@
             [feature.ZeroCrossings :as cross]
             [feature.ConstantQ2 :as cq2]))
 
+(use 'criterium.core)
+
 (defn -main
   [& args])
 
@@ -37,8 +39,8 @@
 (defn write-row [audio genre]
   (let [output (in/get-shorts (in/get-bytes audio))
         fft (dsp/fft-audio output 4096)
-        cq (cq2/get-cq-stats output 22050)
-        mfcc (mfcc/get-stats fft)
+        cq (cq2/get-cq-stats output 22050 256)
+        mfcc (mfcc/get-stats fft 22050 4096)
         moments (moments/get-stats fft)
         rolloff (rolloff/get-stats fft)
         flux (flux/get-stats fft)

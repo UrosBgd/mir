@@ -11,7 +11,8 @@
                  [net.mikera/core.matrix "0.57.0"]
                  [prismatic/hiphip "0.2.1"]
                  [net.mikera/vectorz-clj "0.46.0"]
-                 [criterium "0.4.4"]]
+                 [criterium "0.4.4"]
+                 [net.mikera/core.matrix.stats "0.7.0"]]
   :main ^:skip-aot mir.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

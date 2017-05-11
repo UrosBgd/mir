@@ -3,6 +3,7 @@
   (:require [hiphip.double :as dbl]))
 
 (set! *warn-on-reflection* true)
+;(set! *unchecked-math* :warn-on-boxed)
 
 (defn doubles-mean [^doubles array]
     (dbl/amean array))
@@ -10,13 +11,14 @@
 (defn doubles-std [^doubles array]
   (let [mean (dbl/amean array)
         square-diff-sum (dbl/asum [x array] (Math/pow (- x mean) 2))]
-    (/ square-diff-sum (dbl/alength array))))
+    (/ ^double square-diff-sum (dbl/alength array))))
 
 (defn mean [array]
-  (/ (reduce + array) (count array)))
+  (/ ^double (reduce + array) (count array)))
 
 (defn variance [array]
-  (/ (reduce + (map #(Math/pow (- % (mean array)) 2) array)) (count array)))
+  (let [^double mean (mean array)]
+    (/ ^double (reduce + ^double (map #(Math/pow (- ^double % mean) 2) array)) (count array))))
 
 (defn std [array]
   (Math/sqrt (variance array)))

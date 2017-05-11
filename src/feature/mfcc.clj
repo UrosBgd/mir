@@ -3,12 +3,15 @@
   (:use [feature.Spectrum :as spectrum])
   (:require [dsp.fft :as dsp]
             [io.import :as audio]
-            [util.statistics :as stats])
-  )
+            [util.statistics :as stats]
+            [hiphip.double :as dbl]))
+
+(set! *warn-on-reflection* true)
+(set! *unchecked-math* :warn-on-boxed)
 
 (def num-mel-filters 23)
 (def num-cepstra 13)
-;(def low-filter-freq 133.3334)
+(def low-filter-freq 64)
 ;(def frame-size 512)
 ;(def sample-rate (. audio/base-format getSampleRate))
 
@@ -16,67 +19,71 @@
 (defn bin [window]
   (magnitude-spectrum window))
 
-(defn freq-to-mel [freq]
+(defn freq-to-mel [^double freq]
   (* 2595 (/ (Math/log (+ 1 (/ freq 700))) (Math/log 10))))
 
-(defn inverse-mel [value]
+(defn inverse-mel [^double value]
   (* 700 (- (Math/pow 10 (/ value 2595)) 1)))
 
-(defn center-freq [i sample-rate low-filter-freq]
-  (let [^doubles mel (make-array Double/TYPE 2)]
+(defn center-freq [i ^double sample-rate]
+  (let [^doubles mel (double-array 2)]
     (aset-double mel 0 (freq-to-mel low-filter-freq))
     (aset-double mel 1 (freq-to-mel (/ sample-rate 2)))
-    (let [temp (+ (aget mel 0) (* i (/ (- (aget mel 1) (aget mel 0)) (+ num-mel-filters 1))))]
+    (let [temp (+ (aget mel 0) (* ^long i (/ (- (aget mel 1) (aget mel 0)) (+ ^long num-mel-filters 1))))]
       (inverse-mel temp))
     ))
 
-;Mel filtering
-(defn cbin [sample-rate frame-size low-filter-freq]
-  (let [cbin-array (make-array Double/TYPE (+ num-mel-filters 2))]
-    (aset-double cbin-array 0 (double (/ low-filter-freq (* sample-rate frame-size))))
-    (aset-double cbin-array (- (count cbin-array) 1) (/ frame-size 2))
+(defn cbin
+  "Mel filtering"
+  [^long sample-rate ^long frame-size]
+  (let [cbin-array (double-array (+ ^long num-mel-filters 2))
+        const (* sample-rate frame-size)]
+    (aset-double cbin-array 0 (double (/ ^double low-filter-freq const)))
+    (aset-double cbin-array (- (alength cbin-array) 1) (/ frame-size 2))
     (loop [i 1]
-      (when (<= i num-mel-filters)
-        (let [cf (center-freq i sample-rate low-filter-freq)]
-          (aset-double cbin-array i (double (/ cf (* sample-rate frame-size)))))
+      (when (<= i ^long num-mel-filters)
+        (let [cf (center-freq i sample-rate)]
+          (aset-double cbin-array i (/ ^double cf const)))
         (recur (+ i 1))))
     cbin-array
     ))
 
-;Mel filterbank TODO refactor
-(defn fbank [window sample-rate frame-size low-filter-freq]
+(defn fbank [window sample-rate frame-size ^doubles cbin-data]
   (let [^doubles bin-data (bin window)
-        ^doubles cbin-data (cbin sample-rate frame-size low-filter-freq)
-        ^doubles temp (make-array Double/TYPE (+ num-mel-filters 2))
-        fbank-data (make-array Double/TYPE num-mel-filters)]
+        ^doubles temp (double-array (+ ^long num-mel-filters 2))
+        fbank-data (double-array num-mel-filters)]
     (loop [k 1]
-      (when (<= k num-mel-filters)
-        (let [^doubles num1 (make-array Double/TYPE 1)]
-          (loop [i (aget cbin-data (- k 1))]
-            (when (<= i (aget cbin-data k))
-              (aset-double num1 0 (+ (aget num1 0) (* (aget bin-data i) (/ (+ (- i (aget cbin-data (- k 1))) 1) (+ (- (aget cbin-data k) (aget cbin-data (- k 1))) 1)))))
+      (when (<= k ^long num-mel-filters)
+        (let [^doubles num1 (double-array 1)
+              cbin-k (aget cbin-data k)
+              cbin-k-1 (aget cbin-data (- k 1))
+              cbin-k+1 (aget cbin-data (+ k 1))]
+          (loop [i cbin-k-1]
+            (when (<= i cbin-k)
+              (dbl/ainc num1 0 (* (aget bin-data i) (/ (+ (- i cbin-k-1) 1) (+ (- cbin-k cbin-k-1) 1))))
               (recur (+ i 1))))
-          (let [^doubles num2 (make-array Double/TYPE 1)]
-            (loop [j (+ (aget cbin-data k) 1)]
-              (when (<= j (aget cbin-data (+ k 1)))
-                (aset-double num2 0 (+ (aget num2 0) (* (aget bin-data j) (- 1 (/ (- j (aget cbin-data k)) (+ (- (aget cbin-data (+ k 1)) (aget cbin-data k)) 1))))))
+          (let [^doubles num2 (double-array 1)]
+            (loop [j (+ cbin-k 1)]
+              (when (<= j cbin-k+1)
+                (dbl/ainc num2 0 (* (aget bin-data j) (- 1 (/ (- j cbin-k) (+ (- cbin-k+1 cbin-k) 1)))))
                 (recur (+ j 1))))
             (aset-double temp k (+ (aget num1 0) (aget num2 0)))))
         (recur (+ k 1))))
     (loop [x 0]
-      (when (< x num-mel-filters)
+      (when (< x ^long num-mel-filters)
         (aset-double fbank-data x (aget temp (+ x 1)))
         (recur (+ x 1))))
     fbank-data
     ))
 
-;Non-Linear transformation
-(defn non-linear-transform [window sample-rate frame-size low-filter-freq]
-  (let [^doubles fbank-data (fbank window sample-rate frame-size low-filter-freq)
-        ^doubles nlt (make-array Double/TYPE (count fbank-data))
+(defn non-linear-transform
+  "Non-Linear transformation"
+  [window sample-rate frame-size cbin-data]
+  (let [^doubles fbank-data (fbank window sample-rate frame-size cbin-data)
+        ^doubles nlt (double-array (alength fbank-data))
         floor -50]
     (loop [i 0]
-      (when (< i (count fbank-data))
+      (when (< i (alength fbank-data))
         (aset-double nlt i (Math/log (aget fbank-data i)))
         (if (< (aget nlt i) floor)
           (aset-double nlt i floor))
@@ -84,30 +91,30 @@
     nlt
     ))
 
-;Cep coefficients
-(defn cep-coefficients [window sample-rate frame-size low-filter-freq]
-  (let [^doubles data (non-linear-transform window sample-rate frame-size low-filter-freq)
-        ^doubles ceps (make-array Double/TYPE num-cepstra)]
+(defn cep-coefficients
+  "Cep coefficients"
+  [window sample-rate frame-size cbin-data]
+  (let [^doubles data (non-linear-transform window sample-rate frame-size cbin-data)
+        ^doubles ceps (double-array num-cepstra)]
     (loop [i 0]
-      (when (< i num-cepstra)
-        (loop [j 1]
-          (when (< j num-mel-filters)
-            (aset-double ceps i (+ (aget ceps i) (* (aget data (- j 1)) (Math/cos (/ (* i (Math/PI)) (* num-mel-filters (- j 0.5)))))))
-            (recur (+ j 1))
-            )
-          )
-        (recur (+ i 1))
-        )
-      )
-    (vec ceps)
+      (if (< i ^long num-cepstra)
+        (do (let [pi (* i (Math/PI))]
+              (loop [j 1]
+                (if (< j ^long num-mel-filters)
+                  (do (dbl/ainc ceps i (* (aget data (- j 1)) (Math/cos (/ pi (* ^long num-mel-filters (- j 0.5))))))
+                      (recur (+ j 1))))))
+            (recur (+ i 1)))))
+    ceps
     ))
 
-(defn get-stats [fft]
-  (let [ceps (flatten (map #(cep-coefficients % 22050 4096 64) (butlast fft)))
-        mean (stats/mean ceps)
-        std (stats/std ceps)]
-    {:mean mean
-     :std std}
+(defn get-stats [fft sample-rate frame-size]
+  (let [cbin-data (cbin sample-rate frame-size)
+        ceps (flatten (map #(cep-coefficients % sample-rate frame-size cbin-data) (butlast fft)))
+        ceps (map #(cep-coefficients % sample-rate frame-size cbin-data) (butlast fft))
+        ceps-mean (map #(stats/doubles-mean %) ceps)
+        ceps-std (map #(stats/std %)ceps)]
+    {:mean (stats/mean ceps-mean)
+     :std (stats/mean ceps-std)}
     ))
 
 

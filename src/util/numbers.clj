@@ -29,14 +29,14 @@
 
 
 (defn power [complex]
-  (* (cx/abs complex) (cx/abs complex)))
+  (let [abs (cx/abs complex)]
+    (* abs abs)))
 
 (defn get-real [array]
   (map #(cx/real-part %) array))
 
-(defn divide-array-into-windows [^shorts array ^long window-size nth]
-  (let [length (alength array)
-        count (/ length window-size)]
+(defn array-into-windows [^shorts array ^long window-size nth]
+  (let [length (alength array)]
     (loop [i 0
            start 0
            output []

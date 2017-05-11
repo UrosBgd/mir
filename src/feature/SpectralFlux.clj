@@ -3,11 +3,11 @@
   (:require [feature.Spectrum :as spectrum]
             [util.statistics :as stats]))
 
-(defn pow [b e]
-  (Math/pow b e))
+(set! *warn-on-reflection* true)
+(set! *unchecked-math* :warn-on-boxed)
 
 (defn get-next-flux [^doubles this-mag-spec ^doubles prev-mag-spec]
-  (apply + (mapv #(pow % 2) (mapv - this-mag-spec prev-mag-spec))))
+  (apply + (mapv #(Math/pow % 2) (mapv - this-mag-spec prev-mag-spec))))
 
 (defn get-flux [fft]
   (let [^doubles magnitudes (map #(spectrum/magnitude-spectrum %) fft)

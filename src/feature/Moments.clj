@@ -2,21 +2,27 @@
   "Represents first 5 statistical moments methods: mean, variance, normalised moments, skewness and kurtosis."
   (:require [util.statistics :as stats]
             [dsp.fft :as dsp]
-            [feature.Spectrum :as spectrum]))
+            [feature.Spectrum :as spectrum]
+            [hiphip.double :as dbl]))
+
+(set! *warn-on-reflection* true)
+(set! *unchecked-math* :warn-on-boxed)
 
 (defn get-scale [^doubles magnitudes]
-  (apply + magnitudes))
+  (dbl/asum magnitudes))
 
-(defn get-mean [^doubles magnitudes scale]
-  (apply + (map-indexed (fn [index e] (* (/ e scale) (inc index))) (rest magnitudes))))
+(defn get-mean [^doubles magnitudes ^double scale]
+  (apply + (map-indexed
+             (fn [^double index ^double e] (* (/ e scale) (inc index)))
+             (rest magnitudes))))
 
-(defn get-spectral-centroid [mean]
+(defn get-spectral-centroid [^double mean]
   (- mean (* mean mean)))
 
-(defn get-skewness [mean centroid]
+(defn get-skewness [^double mean ^double centroid]
   (- (* 2 (Math/pow (- mean) 3)) (* 3 mean centroid) (- centroid)))
 
-(defn get-kurtosis [mean centroid skewness]
+(defn get-kurtosis [^double mean ^double centroid ^double skewness]
   (+ (* -3 (Math/pow (- mean) 4)) (* 6 mean mean centroid) (* -4 mean skewness) mean))
 
 (defn get-moments [fft]
