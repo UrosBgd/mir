@@ -23,8 +23,8 @@
                     (if (is-cross-point (first i) (second i)) (inc count) count)))))
 
 (defn get-stats [fft]
-  (let [input (map #(num/get-real %) fft)
-        data (map #(get-crossings %) input)
+  (let [real (map #(:real %) fft)
+        data (map #(get-crossings %) real)
         mean (stats/mean data)
         std (stats/std data)]
     {:mean (double mean)

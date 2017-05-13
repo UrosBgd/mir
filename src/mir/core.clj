@@ -38,7 +38,7 @@
 
 (defn write-row [audio genre]
   (let [output (in/get-shorts (in/get-bytes audio))
-        fft (dsp/fft-audio output 4096)
+        fft (dsp/fft-all output 4096)
         cq (cq2/get-cq-stats output 22050 256)
         mfcc (mfcc/get-stats fft 22050 4096)
         moments (moments/get-stats fft)
@@ -72,3 +72,4 @@
 ;  (if (< i (count src))
 ;    (write-features (:dir (nth src i)) (:name (nth src i))))
 ;  (recur (+ i 1)))
+

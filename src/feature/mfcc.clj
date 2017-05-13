@@ -15,8 +15,9 @@
 ;(def frame-size 512)
 ;(def sample-rate (. audio/base-format getSampleRate))
 
-;Magnitude spectrum
-(defn bin [window]
+(defn bin
+  "Magnitude spectrum"
+  [window]
   (magnitude-spectrum window))
 
 (defn freq-to-mel [^double freq]
@@ -109,7 +110,6 @@
 
 (defn get-stats [fft sample-rate frame-size]
   (let [cbin-data (cbin sample-rate frame-size)
-        ceps (flatten (map #(cep-coefficients % sample-rate frame-size cbin-data) (butlast fft)))
         ceps (map #(cep-coefficients % sample-rate frame-size cbin-data) (butlast fft))
         ceps-mean (map #(stats/doubles-mean %) ceps)
         ceps-std (map #(stats/std %)ceps)]

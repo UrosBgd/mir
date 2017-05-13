@@ -104,7 +104,7 @@
 
 
 (defn get-cq-stats [^shorts samples sample-rate window-size]
-  (let [windows (num/array-into-windows samples window-size 4)
+  (let [windows (take-nth 4 (num/array-into-windows samples window-size))
         freq (calc-freq sample-rate window-size)
         nk (calc-nk window-size freq)
         kernels (calc-kernels nk)

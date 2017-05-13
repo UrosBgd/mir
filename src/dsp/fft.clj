@@ -1,7 +1,13 @@
 (ns dsp.fft
   "Calculates Fast Fourier transform"
   (:use [util.numbers])
-  (:require [io.import :as audio]))
+  (:require [io.import :as audio]
+            [hiphip.double :as dbl]
+            [hiphip.array :as hiphip]
+            [util.numbers :as num]))
+
+(set! *warn-on-reflection* true)
+(set! *unchecked-math* :warn-on-boxed)
 
 (defn next-binary-index ^long [^long index ^long half-length]
   (loop [i index
@@ -50,9 +56,9 @@
                                 local-real (- (* real-correction (aget real-array right)) (* imag-correction (aget imag-array right)))
                                 local-imag (+ (* real-correction (aget imag-array right)) (* imag-correction (aget real-array right)))]
                             (aset-double real-array right (- (aget real-array left) local-real))
-                            (aset-double real-array left (+ (aget real-array left) local-real))
+                            (dbl/ainc real-array left local-real)
                             (aset-double imag-array right (- (aget imag-array left) local-imag))
-                            (aset-double imag-array left (+ (aget imag-array left) local-imag))
+                            (dbl/ainc imag-array left local-imag)
 
                             (recur (+ left step-size))))
                         ))
@@ -61,9 +67,6 @@
             (recur step-size (* 2 step-size))))
         (vec real-array)))
     ))
-
-(defn divide-into-windows [^shorts array window-size]
-  (partition window-size window-size nil array))
 
 (defn fft [^doubles real-array]
   (let [imag-array (double-array (alength real-array))]
@@ -74,6 +77,6 @@
     ))
 
 (defn fft-all [^shorts song window-size]
-  (let [windows (divide-into-windows song window-size)]
+  (let [windows (num/array-into-windows song window-size)]
     (map #(fft (double-array %)) windows)
     ))

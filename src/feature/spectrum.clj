@@ -3,27 +3,32 @@
   (:use [util.numbers])
   (:use [dsp.fft])
   (:require [complex.core :as cx]
-            [util.statistics :as stats]))
+            [util.statistics :as stats]
+            [util.numbers :as num]))
 
 (set! *warn-on-reflection* true)
 (set! *unchecked-math* :warn-on-boxed)
 
-(defn power-spectrum [fft-data]
-  (let [size (count fft-data)
+(defn power-spectrum [window]
+  (let [^doubles real (:real window)
+        ^doubles imag (:imag window)
+        size (alength real)
         output-power (double-array (/ size 2))]
     (loop [x 0]
       (if (< x ^double (/ size 2))
-        (do (aset-double output-power x (/ ^double (power (nth fft-data x)) size))
+        (do (aset-double output-power x (/ ^double (num/doubles-power (aget real x) (aget imag x)) size))
             (recur (+ x 1)))))
     output-power
     ))
 
-(defn magnitude-spectrum [fft-data]
-  (let [size (count fft-data)
+(defn magnitude-spectrum [window]
+  (let [^doubles real (:real window)
+        ^doubles imag (:imag window)
+        size (alength real)
         output-magnitude (double-array (/ size 2))]
     (loop [x 0]
       (if (< x ^double (/ size 2))
-        (do (aset-double output-magnitude x (/ ^double (cx/abs (nth fft-data x)) size))
+        (do (aset-double output-magnitude x (/ ^double (num/doubles-abs (aget real x) (aget imag x)) size))
             (recur (+ x 1)))))
     output-magnitude
     ))

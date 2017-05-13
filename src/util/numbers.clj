@@ -2,6 +2,9 @@
   "Numbers helper functions."
   (:require [complex.core :as cx]))
 
+;(set! *warn-on-reflection* true)
+;(set! *unchecked-math* :warn-on-boxed)
+
 (defn number-of-decimals [decimal]
   (. (str decimal) substring
      (+ 1 (. (str decimal) indexOf "E"))
@@ -35,7 +38,7 @@
 (defn get-real [array]
   (map #(cx/real-part %) array))
 
-(defn array-into-windows [^shorts array ^long window-size nth]
+(defn array-into-windows [^shorts array ^long window-size]
   (let [length (alength array)]
     (loop [i 0
            start 0
@@ -47,7 +50,7 @@
                    (+ start window-size)
                    (conj output temp)
                    (short-array window-size)))
-        (take-nth nth output)))))
+        output))))
 
 (defn join-arrays [arrays]
   (let [length (alength ^doubles (first arrays))
@@ -58,3 +61,9 @@
         (do (System/arraycopy (nth arrays i) 0 output (* i length) length)
             (recur (+ i 1)))
         output))))
+
+(defn doubles-abs [^double real ^double imag]
+  (Math/sqrt (+ (* real real) (* imag imag))))
+
+(defn doubles-power [^double real ^double imag]
+  (+ (* real real) (* imag imag)))
