@@ -5,10 +5,10 @@
 (set! *warn-on-reflection* true)
 ;(set! *unchecked-math* :warn-on-boxed)
 
-(defn doubles-mean [^doubles array]
+(defn doubles-mean [array]
     (dbl/amean array))
 
-(defn doubles-std [^doubles array]
+(defn doubles-std [array]
   (let [mean (dbl/amean array)
         square-diff-sum (dbl/asum [x array] (Math/pow (- x mean) 2))]
     (/ ^double square-diff-sum (dbl/alength array))))

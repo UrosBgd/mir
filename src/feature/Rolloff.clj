@@ -5,15 +5,15 @@
             [hiphip.double :as dbl]))
 
 (set! *warn-on-reflection* true)
-(set! *unchecked-math* :warn-on-boxed)
+;(set! *unchecked-math* :warn-on-boxed)
 
-(defn threshold [^doubles pow-spectrum]
+(defn threshold [pow-spectrum]
   (* (dbl/asum pow-spectrum) 0.85))
 
 (def get-rolloff
   (fn [fft]
-    (let [^doubles pow-spectrum (map #(spectrum/power-spectrum %) fft)
-          ^doubles threshold (map #(threshold %) pow-spectrum)
+    (let [pow-spectrum (map #(spectrum/power-spectrum %) fft)
+          threshold (map #(threshold %) pow-spectrum)
           rolloff (map #(loop [i %1
                                total 0.0]
                           (let [[^double f & other] i]

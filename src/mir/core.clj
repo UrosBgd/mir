@@ -31,10 +31,10 @@
           {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\classical" :name "classical"}
           {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\blues" :name "blues"}])
 
-(defn get-audio-files [dir]
+(defn get-audio-files [^String dir]
   (let [files (. (File. dir) listFiles)
-        paths (map #(. % getAbsolutePath) files)]
-    (map #(File. %) paths)))
+        paths (map #(. ^File % getAbsolutePath) files)]
+    (map #(File. ^String %) paths)))
 
 (defn write-row [audio genre]
   (let [output (in/get-shorts (in/get-bytes audio))
@@ -63,13 +63,9 @@
 
 (defn write-features [dir genre]
   (let [files (get-audio-files dir)]
-    (loop [i 0]
-      (if (< i (count files))
-        (write-row (nth files i) genre))
-      (recur (+ i 1)))))
+    (map #(write-row % genre) files)))
 
-;(loop [i 0]
-;  (if (< i (count src))
-;    (write-features (:dir (nth src i)) (:name (nth src i))))
-;  (recur (+ i 1)))
+(defn analyze-dataset [sources]
+  (doall (map #(write-features (:dir %) (:name %)) sources)))
 
+;(analyze-dataset src)

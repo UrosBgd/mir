@@ -27,6 +27,6 @@
         data (map #(get-crossings %) real)
         mean (stats/mean data)
         std (stats/std data)]
-    {:mean (double mean)
+    {:mean mean
      :std std}
     ))

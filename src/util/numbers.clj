@@ -1,6 +1,7 @@
 (ns util.numbers
   "Numbers helper functions."
-  (:require [complex.core :as cx]))
+  (:require [complex.core :as cx]
+            [hiphip.double :as dbl]))
 
 ;(set! *warn-on-reflection* true)
 ;(set! *unchecked-math* :warn-on-boxed)
@@ -67,3 +68,7 @@
 
 (defn doubles-power [^double real ^double imag]
   (+ (* real real) (* imag imag)))
+
+(defn to-double-array [^shorts array]
+  (dbl/amake [x (alength array)]
+             (aget array x)))

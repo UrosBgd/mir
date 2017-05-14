@@ -8,10 +8,10 @@
 (set! *warn-on-reflection* true)
 (set! *unchecked-math* :warn-on-boxed)
 
-(defn get-scale [^doubles magnitudes]
+(defn get-scale [magnitudes]
   (dbl/asum magnitudes))
 
-(defn get-mean [^doubles magnitudes ^double scale]
+(defn get-mean [magnitudes ^double scale]
   (apply + (map-indexed
              (fn [^double index ^double e] (* (/ e scale) (inc index)))
              (rest magnitudes))))

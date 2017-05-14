@@ -4,33 +4,28 @@
   (:use [dsp.fft])
   (:require [complex.core :as cx]
             [util.statistics :as stats]
-            [util.numbers :as num]))
+            [util.numbers :as num]
+            [hiphip.double :as dbl]))
 
 (set! *warn-on-reflection* true)
 (set! *unchecked-math* :warn-on-boxed)
 
 (defn power-spectrum [window]
-  (let [^doubles real (:real window)
-        ^doubles imag (:imag window)
-        size (alength real)
-        output-power (double-array (/ size 2))]
-    (loop [x 0]
-      (if (< x ^double (/ size 2))
-        (do (aset-double output-power x (/ ^double (num/doubles-power (aget real x) (aget imag x)) size))
-            (recur (+ x 1)))))
-    output-power
+  (let [real (:real window)
+        imag (:imag window)
+        size (dbl/alength real)
+        half-size (/ size 2)]
+    (dbl/amake [x half-size]
+               (/ ^double (num/doubles-power (dbl/aget real x) (dbl/aget imag x)) size))
     ))
 
 (defn magnitude-spectrum [window]
-  (let [^doubles real (:real window)
-        ^doubles imag (:imag window)
-        size (alength real)
-        output-magnitude (double-array (/ size 2))]
-    (loop [x 0]
-      (if (< x ^double (/ size 2))
-        (do (aset-double output-magnitude x (/ ^double (num/doubles-abs (aget real x) (aget imag x)) size))
-            (recur (+ x 1)))))
-    output-magnitude
+  (let [real (:real window)
+        imag (:imag window)
+        size (dbl/alength real)
+        half-size (/ size 2)]
+    (dbl/amake [x half-size]
+               (/ ^double (num/doubles-abs (dbl/aget real x) (dbl/aget imag x)) size))
     ))
 
 (defn get-mag-stats [fft]

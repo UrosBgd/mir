@@ -1,6 +1,5 @@
 (ns util.csv
-  (:require [clojure.core.matrix :as matrix])
-  )
+  (:require [clojure.core.matrix :as matrix]))
 
 (defn write-line [data filename]
   (let [name (str filename ".csv")]
