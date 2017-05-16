@@ -1,6 +1,6 @@
-(ns feature.SpectralFlux
+(ns feature.spectral-flux
   "Spectral Flux mesures changing quickness of power spectrum between two neighbor frames."
-  (:require [feature.Spectrum :as spectrum]
+  (:require [feature.spectrum :as spectrum]
             [util.statistics :as stats]))
 
 (set! *warn-on-reflection* true)
@@ -20,5 +20,4 @@
         mean (stats/mean flux)
         std (stats/std flux)]
     {:mean mean
-     :std std}
-    ))
+     :std std}))

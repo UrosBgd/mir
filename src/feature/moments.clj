@@ -1,8 +1,8 @@
-(ns feature.Moments
+(ns feature.moments
   "Represents first 5 statistical moments methods: mean, variance, normalised moments, skewness and kurtosis."
   (:require [util.statistics :as stats]
             [dsp.fft :as dsp]
-            [feature.Spectrum :as spectrum]
+            [feature.spectrum :as spectrum]
             [hiphip.double :as dbl]))
 
 (set! *warn-on-reflection* true)
@@ -35,8 +35,7 @@
         ]
     {:scale scale :mean mean :centroid centroid
      ;:skewness skewness :kurtosis kurtosis
-     }
-    ))
+     }))
 
 (defn get-stats [fft]
   (let [moments (get-moments fft)
@@ -48,8 +47,7 @@
         centroid-std (stats/std (:centroid moments))]
     {:scale {:mean scale-mean :std scale-std}
      :mean {:mean mean-mean :std mean-std}
-     :centroid {:mean centroid-mean :std centroid-std}}
-    ))
+     :centroid {:mean centroid-mean :std centroid-std}}))
 
 
 

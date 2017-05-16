@@ -1,6 +1,6 @@
-(ns feature.Rolloff
+(ns feature.rolloff
   "Rolloff measures amount of the right skewedness of power spectrum."
-  (:require [feature.Spectrum :as spectrum]
+  (:require [feature.spectrum :as spectrum]
             [util.statistics :as stats]
             [hiphip.double :as dbl]))
 
@@ -19,13 +19,11 @@
                           (let [[^double f & other] i]
                             (cond (>= ^double (+ total f) ^double %2) (/ f (count %))
                                   :t (recur other (+ total f))))) pow-spectrum threshold)]
-      rolloff
-      )))
+      rolloff)))
 
 (defn get-stats [fft]
   (let [rolloff (get-rolloff fft)
         mean (stats/mean rolloff)
         std (stats/std rolloff)]
     {:mean mean
-     :std std}
-    ))
+     :std std}))

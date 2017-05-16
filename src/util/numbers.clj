@@ -7,19 +7,18 @@
 ;(set! *unchecked-math* :warn-on-boxed)
 
 (defn number-of-decimals [decimal]
-  (. (str decimal) substring
-     (+ 1 (. (str decimal) indexOf "E"))
-     (. (str decimal) length)))
+  (.substring (str decimal)
+     (inc (.indexOf (str decimal) "E"))
+     (.length (str decimal) )))
 
 (defn i-part [decimal]
-  (let [x (Integer/parseInt (. (str (Math/abs decimal)) substring
-                               0
-                               (. (str (Math/abs decimal)) indexOf ".")))]
+  (let [x (Integer/parseInt (.substring (str (Math/abs decimal))
+                                        0
+                                        (.indexOf (str (Math/abs decimal)) ".")))]
     (if (< decimal 0)
       (* -1 x)
       x)
-    )
-  )
+    ))
 
 (defn d-part [decimal]
   (- decimal (i-part decimal)))
@@ -47,7 +46,7 @@
            temp (short-array window-size)]
       (if (>= (- length start) window-size)
         (do (System/arraycopy array start temp 0 window-size)
-            (recur (+ i 1)
+            (recur (inc i)
                    (+ start window-size)
                    (conj output temp)
                    (short-array window-size)))
@@ -60,7 +59,7 @@
     (loop [i 0]
       (if (< i count)
         (do (System/arraycopy (nth arrays i) 0 output (* i length) length)
-            (recur (+ i 1)))
+            (recur (inc i)))
         output))))
 
 (defn doubles-abs [^double real ^double imag]

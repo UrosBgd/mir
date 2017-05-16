@@ -7,29 +7,18 @@
             [util.numbers :as num]
             [util.statistics :as stats]
             [util.csv :as csv]
-            [feature.Mfcc :as mfcc]
-            [feature.Moments :as moments]
-            [feature.Rolloff :as rolloff]
-            [feature.SpectralFlux :as flux]
-            [feature.Spectrum :as spec]
-            [feature.ZeroCrossings :as cross]
-            [feature.ConstantQ2 :as cq2]))
+            [feature.mfcc :as mfcc]
+            [feature.moments :as moments]
+            [feature.rolloff :as rolloff]
+            [feature.spectral-flux :as flux]
+            [feature.spectrum :as spec]
+            [feature.zero-crossings :as cross]
+            [feature.constant-q2 :as cq2]))
 
 (use 'criterium.core)
 
 (defn -main
   [& args])
-
-(def src [{:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\rock" :name "rock"}
-          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\reggae" :name "reggae"}
-          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\pop" :name "pop"}
-          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\metal" :name "metal"}
-          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\jazz" :name "jazz"}
-          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\hiphop" :name "hiphop"}
-          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\disco" :name "disco"}
-          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\country" :name "country"}
-          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\classical" :name "classical"}
-          {:dir "C:\\Users\\User\\Desktop\\dataset\\genres\\blues" :name "blues"}])
 
 (defn get-audio-files [^String dir]
   (let [files (. (File. dir) listFiles)
@@ -67,5 +56,3 @@
 
 (defn analyze-dataset [sources]
   (doall (map #(write-features (:dir %) (:name %)) sources)))
-
-;(analyze-dataset src)

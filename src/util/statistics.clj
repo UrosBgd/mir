@@ -6,7 +6,7 @@
 ;(set! *unchecked-math* :warn-on-boxed)
 
 (defn doubles-mean [array]
-    (dbl/amean array))
+  (dbl/amean array))
 
 (defn doubles-std [array]
   (let [mean (dbl/amean array)
@@ -33,9 +33,9 @@
   (/ (get (frequencies (map-indexed (fn [idx itm] (- itm (nth (map #(:label %) (prediction-training-data 0)) idx))) example-predictions)) 0.0)
      (count predictions)))
 
-(defn normalization [vector]
-  (let [min (apply min vector) max (apply max vector)]
-    (map #(with-precision 10 (/ (- % min) (- max min))) vector)))
+(defn normalization [coll]
+  (let [min (apply min coll) max (apply max coll)]
+    (map #(with-precision 10 (/ (- % min) (- max min))) coll)))
 
 (defn normalization-x [matrix]
   (map #(normalization %) matrix))

@@ -1,4 +1,4 @@
-(ns feature.ZeroCrossings
+(ns feature.zero-crossings
   "ZeroCrossings shows how many times signal changes between positive and negative."
   (:require [dsp.fft :as dsp]
             [util.numbers :as num]
@@ -9,8 +9,8 @@
 
 (defn is-cross-point [^double a ^double b]
   (if (or
-        (and (> a 0.0) (< b 0.0))
-        (and (< a 0.0) (> b 0.0))
+        (> a 0.0 b)
+        (< a 0.0 b)
         (and (= a 0.0) (not= b 0.0)))
     true
     false))
@@ -28,5 +28,4 @@
         mean (stats/mean data)
         std (stats/std data)]
     {:mean mean
-     :std std}
-    ))
+     :std std}))

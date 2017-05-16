@@ -1,6 +1,5 @@
 (ns dsp.fft
   "Calculates Fast Fourier transform"
-  (:use [util.numbers])
   (:require [io.import :as audio]
             [hiphip.double :as dbl]
             [util.numbers :as num]))
@@ -11,10 +10,9 @@
 (defn next-binary-index ^long [^long index ^long half-length]
   (loop [i index
          position half-length]
-    (if (and (>= i position) (>= position 1))
+    (if (>= i position 1)
       (recur (- i position) (unchecked-divide-int position 2))
-      (+ i position))
-    ))
+      (+ i position))))
 
 (defn reorder [real-array imag-array]
   (let [halft-length (/ (dbl/alength real-array) 2)]
@@ -30,9 +28,8 @@
                 (dbl/aset real-array i local-real)
                 (dbl/aset imag-array binary-index (dbl/aget imag-array i))
                 (dbl/aset imag-array i local-imag))))
-          (recur (+ i 1) (next-binary-index binary-index halft-length)))
-        )
-      )))
+          (recur (inc i) (next-binary-index binary-index halft-length)))
+        ))))
 
 (defn recombination [real-array imag-array]
   (let [halft-length (unchecked-divide-int (dbl/alength real-array) 2)]
@@ -61,21 +58,18 @@
 
                             (recur (+ left step-size))))
                         ))
-                    (recur (+ 1 spectra-count))))
+                    (recur (inc spectra-count))))
                 ))
             (recur step-size (* 2 step-size))))
-        real-array))
-    ))
+        real-array))))
 
 (defn fft [real-array]
   (let [imag-array (double-array (dbl/alength real-array))]
     (reorder real-array imag-array)
     (recombination real-array imag-array)
-    {:real real-array, :imag imag-array}
-    ))
+    {:real real-array, :imag imag-array}))
 
 (defn fft-all [song window-size]
   (let [windows (num/array-into-windows song window-size)]
-    (map #(fft (num/to-double-array %)) windows)
-    ))
+    (map (comp fft num/to-double-array) windows)))
 

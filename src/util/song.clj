@@ -1,14 +1,15 @@
-(ns util.song)
+(ns util.song
+  (:require [clojure.string :as str]))
 
 (defn get-artist [song]
-  (if (. song contains "-")
-    (. (first (. song split "-")) trim)
+  (if (.contains song "-")
+    (. (first (.split song "-")) trim)
     ))
 
 (defn get-title [song]
-  (if (. song contains "-")
-    (. (first (. (second (. song split "-")) split "\\.")) trim)
-    (. (reduce str (butlast (. song split "\\."))) trim)))
+  (if (.contains song "-")
+    (.trim (first (.split (second (.split song "-")) "\\.")))
+    (.trim (reduce str (butlast (.split song "\\."))))))
 
 
 (get-title "Liem - If Only.mp3")

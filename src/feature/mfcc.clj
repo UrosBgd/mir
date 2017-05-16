@@ -1,7 +1,7 @@
-(ns feature.Mfcc
+(ns feature.mfcc
   "Mel-frequency cepstral coefficients represents short-term power spectrum."
-  (:use [feature.Spectrum :as spectrum])
-  (:require [dsp.fft :as dsp]
+  (:require [feature.spectrum :as spectrum]
+            [dsp.fft :as dsp]
             [io.import :as audio]
             [util.statistics :as stats]
             [hiphip.double :as dbl]))
@@ -16,10 +16,10 @@
 (defn bin
   "Magnitude spectrum"
   [window]
-  (magnitude-spectrum window))
+  (spectrum/magnitude-spectrum window))
 
 (defn freq-to-mel [^double freq]
-  (* 2595 (/ (Math/log (+ 1 (/ freq 700))) (Math/log 10))))
+  (* 2595 (/ (Math/log (inc (/ freq 700))) (Math/log 10))))
 
 (defn inverse-mel [^double value]
   (* 700 (- (Math/pow 10 (/ value 2595)) 1)))
@@ -43,9 +43,8 @@
       (when (<= i ^long num-mel-filters)
         (let [cf (center-freq i sample-rate)]
           (dbl/aset cbin-array i (/ ^double cf const)))
-        (recur (+ i 1))))
-    cbin-array
-    ))
+        (recur (inc i))))
+    cbin-array))
 
 (defn fbank [window sample-rate frame-size cbin-data]
   (let [bin-data (bin window)
@@ -54,22 +53,21 @@
       (when (<= k ^long num-mel-filters)
         (let [^doubles num1 (double-array 1)
               cbin-k (dbl/aget cbin-data k)
-              cbin-k-1 (dbl/aget cbin-data (- k 1))
-              cbin-k+1 (dbl/aget cbin-data (+ k 1))]
+              cbin-k-1 (dbl/aget cbin-data (dec k))
+              cbin-k+1 (dbl/aget cbin-data (inc k))]
           (loop [i cbin-k-1]
             (when (<= i cbin-k)
               (dbl/ainc num1 0 (* (dbl/aget bin-data i) (/ (+ (- i cbin-k-1) 1) (+ (- cbin-k cbin-k-1) 1))))
-              (recur (+ i 1))))
+              (recur (inc i))))
           (let [^doubles num2 (double-array 1)]
-            (loop [j (+ cbin-k 1)]
+            (loop [j (inc cbin-k)]
               (when (<= j cbin-k+1)
                 (dbl/ainc num2 0 (* (dbl/aget bin-data j) (- 1 (/ (- j cbin-k) (+ (- cbin-k+1 cbin-k) 1)))))
-                (recur (+ j 1))))
+                (recur (inc j))))
             (dbl/aset temp k (+ (dbl/aget num1 0) (dbl/aget num2 0)))))
-        (recur (+ k 1))))
+        (recur (inc k))))
     (dbl/amake [i num-mel-filters]
-               (dbl/aget temp (+ i 1)))
-    ))
+               (dbl/aget temp (inc i)))))
 
 (defn non-linear-transform
   "Non-Linear transformation"
@@ -82,9 +80,8 @@
         (dbl/aset nlt i (Math/log (dbl/aget fbank-data i)))
         (if (< (dbl/aget nlt i) floor)
           (dbl/aset nlt i floor))
-        (recur (+ i 1))))
-    nlt
-    ))
+        (recur (inc i))))
+    nlt))
 
 (defn cep-coefficients
   "Cep coefficients"
@@ -97,8 +94,8 @@
               (loop [j 1]
                 (if (< j ^long num-mel-filters)
                   (do (dbl/ainc ceps i (* (dbl/aget data (- j 1)) (Math/cos (/ pi (* ^long num-mel-filters (- j 0.5))))))
-                      (recur (+ j 1))))))
-            (recur (+ i 1)))))
+                      (recur (inc j))))))
+            (recur (inc i)))))
     ceps
     ))
 
@@ -106,9 +103,8 @@
   (let [cbin-data (cbin sample-rate frame-size)
         ceps (map #(cep-coefficients % sample-rate frame-size cbin-data) (butlast fft))
         ceps-mean (map #(stats/doubles-mean %) ceps)
-        ceps-std (map #(stats/std %)ceps)]
+        ceps-std (map #(stats/std %) ceps)]
     {:mean (stats/mean ceps-mean)
-     :std (stats/mean ceps-std)}
-    ))
+     :std  (stats/mean ceps-std)}))
 
 

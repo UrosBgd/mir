@@ -31,7 +31,7 @@
 (defn weighted-labels
   "Aggregated distance to each label based on a distance function"
   [observations distance-function test-instance & {:keys [score-modifier]
-                                                   :or {score-modifier identity}}]
+                                                   :or   {score-modifier identity}}]
   (apply merge-with +
          (map #(hash-map (:label %)
                          (score-modifier (distance-function (:observation test-instance)
@@ -42,7 +42,7 @@
   A score modifier function can be selected to be applied to the distance for each instance.
   For instance to convert the distance to a similarity "
   [training test-data distance-function k & {:keys [score-modifier]
-                                             :or {score-modifier identity}}]
+                                             :or   {score-modifier identity}}]
   (map #(weighted-labels (nearest-neighbors % training distance-function k)
                          distance-function % :score-modifier score-modifier) test-data))
 
@@ -90,8 +90,7 @@
     (= label "metal") 6.0
     (= label "pop") 7.0
     (= label "reggae") 8.0
-    (= label "rock") 9.0
-    ))
+    (= label "rock") 9.0))
 
 (defn- get-example-dataset
   "Convert example Dataset in the form of
@@ -99,8 +98,8 @@
   [example-file-path]
   (let [example-dataset (read-csv example-file-path ",")
         example-labels (map convert-example-labels (map last example-dataset))
-        example-observations (map #(into [] (map bigdec (butlast %))) (stats/scale-csv-vector example-dataset))]
-    (map parse-vector (map #(into [] %) (map cons example-labels example-observations)))))
+        example-observations (map #(vec (map bigdec (butlast %))) (stats/scale-csv-vector example-dataset))]
+    (map parse-vector (map #(vec %) (map cons example-labels example-observations)))))
 
 (defn euclidean-distance
   "Euclidean distance between two vectors\n
@@ -118,5 +117,4 @@
   (def example-data (shuffle (get-example-dataset example-file-path)))
   (def prediction-training-data (stats/split-data example-data 0.2))
   (def example-predictions (predict (prediction-training-data 1) (prediction-training-data 0) euclidean-distance k))
-  (stats/performance example-predictions (map #(:label %) (prediction-training-data 0)) prediction-training-data example-predictions)
-  )
+  (stats/performance example-predictions (map #(:label %) (prediction-training-data 0)) prediction-training-data example-predictions))

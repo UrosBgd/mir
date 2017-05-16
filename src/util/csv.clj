@@ -6,14 +6,13 @@
     (loop [i 0
            line ""]
       (if (< i (count data))
-        (recur (+ i 1)
-               (str line (nth data i) (if (= i (- (count data) 1))
+        (recur (inc i)
+               (str line (nth data i) (if (= i (dec (count data)))
                                         "\n"
                                         ",")))
         (spit name line :append true)
         )
-      )
-    ))
+      )))
 
 ;because songs for each feature in .csv are written top-to-bottom, and it's hard to append data for next feature to the right,
 ;a row of n features is formated for each song (@ index) so it can be appended as a new line
@@ -21,11 +20,10 @@
   (loop [i 0
          formated-row []]
     (if (< i (count data-matrix))
-      (recur (+ i 1)
+      (recur (inc i)
              (conj formated-row (nth (matrix/get-row data-matrix i) index)))
       formated-row
-      )
-    ))
+      )))
 
 (comment defn write-features [labels data-matrix filename]
   (write-line labels filename)
@@ -33,10 +31,9 @@
      (when (< i (count data-matrix))
        (let [row (format-row data-matrix i)]
          (write-line row filename))
-       (recur (+ i 1))
+       (recur (inc i))
        )
-     )
-  )
+     ))
 
 
 

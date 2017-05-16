@@ -1,6 +1,5 @@
 (ns io.import
   "Decodes audio stream and reads it in bytes and shorts."
-  (:use [util.numbers])
   (:import (java.io ByteArrayInputStream DataInputStream File))
   (:import (javax.sound.sampled AudioInputStream AudioSystem AudioFormat AudioFormat$Encoding))
   (:require [hiphip.array :as hiphip]))
@@ -29,12 +28,10 @@
             stream-size (. decoded-audio-stream available)
             byte-arr (byte-array stream-size)]
         (read-bytes decoded-audio-stream byte-arr stream-size)
-        byte-arr
-      ))
+        byte-arr))
 
 (defn get-shorts [^bytes bytes]
   (let [length (/ (alength bytes) 2)
         data-stream (DataInputStream. (ByteArrayInputStream. bytes))]
     (hiphip/amake Short/TYPE [x length]
-                  (. data-stream readShort))
-    ))
+                  (. data-stream readShort))))

@@ -1,4 +1,4 @@
-(ns feature.ConstantQ2
+(ns feature.constant-q2
   (:require [clojure.core.matrix :as matrix]
             [hiphip.double :as dbl]
             [util.statistics :as stats]
@@ -16,18 +16,16 @@
 
 (defn calc-freq [^long sample-rate ^long window-size]
   (let [max-freq (/ sample-rate 2.0)
-        min-freq (/ sample-rate window-size)
+        min-freq (unchecked-divide-int sample-rate window-size)
         carry (* (/ (Math/log (/ max-freq min-freq)) (Math/log 2)) (/ 12 1.0))
         num-fields (Math/floor carry)]
-    num-fields
-    ))
+    num-fields))
 
 (defn calc-nk [^long window-size ^long freq]
   (let [length freq
         const (/ ^double alpha 12.0)]
     (dbl/amake [i length]
-               (Math/ceil (/ window-size (Math/pow 2 (* i const)))))
-    ))
+               (Math/ceil (/ window-size (Math/pow 2 (* i const)))))))
 
 (defn calc-kernels [nk]
   (let [nk-length (dbl/alength nk)
@@ -37,22 +35,19 @@
         const1 (- 1 ^double hamming-factor)
         const2 (* 2.0 Math/PI)]
     (loop [i 0]
-      (if (< i nk-length)
-        (do (let [length (dbl/aget nk i)]
-              (loop [j 0]
-                (when (< j length)
-                  (do (let [j-const (/ j length)
-                            temp (/ (+ ^double hamming-factor (* const1 (Math/cos (* const2 j-const)))) length)
-                            local-const (* q-const j-const)]
-                        (matrix/mset! kernel-real i j (* temp (Math/cos local-const)))
-                        (matrix/mset! kernel-imag i j (* temp (Math/sin local-const))))
-                      (recur (+ j 1)))
-                  )))
-            (recur (+ i 1)))
-        ))
+      (when (< i nk-length)
+        (let [length (dbl/aget nk i)]
+          (loop [j 0]
+            (when (< j length)
+              (let [j-const (/ j length)
+                    temp (/ (+ ^double hamming-factor (* const1 (Math/cos (* const2 j-const)))) length)
+                    local-const (* q-const j-const)]
+                (matrix/mset! kernel-real i j (* temp (Math/cos local-const)))
+                (matrix/mset! kernel-imag i j (* temp (Math/sin local-const))))
+              (recur (inc j)))))
+        (recur (inc i))))
     {:kernel-real kernel-real
-     :kernel-imag kernel-imag}
-    ))
+     :kernel-imag kernel-imag}))
 
 (defn get-cq [^shorts samples nk kernels]
   (let [kernel-real (:kernel-real kernels)
@@ -60,20 +55,17 @@
         nk-length (dbl/alength nk)
         ^doubles temp (dbl/amake [i (* nk-length 2)] 0.0)]
     (loop [bank-counter 0]
-      (if (< bank-counter nk-length)
-        (do (let [index (+ bank-counter nk-length)]
-              (loop [i 0]
-                (if (< i (dbl/aget nk bank-counter))
-                  (do (let [sample (aget samples i)]
-                        (dbl/ainc temp bank-counter (* ^double (matrix/mget kernel-real bank-counter i) sample))
-                        (dbl/ainc temp index (* ^double (matrix/mget kernel-imag bank-counter i) sample)))
-                      (recur (+ i 1)))
-                  )))
-            (recur (+ bank-counter 1)))
-        ))
+      (when (< bank-counter nk-length)
+        (let [index (+ bank-counter nk-length)]
+          (loop [i 0]
+            (when (< i (dbl/aget nk bank-counter))
+              (let [sample (aget samples i)]
+                (dbl/ainc temp bank-counter (* ^double (matrix/mget kernel-real bank-counter i) sample))
+                (dbl/ainc temp index (* ^double (matrix/mget kernel-imag bank-counter i) sample)))
+              (recur (inc i)))))
+        (recur (inc bank-counter))))
     (dbl/amake [i nk-length]
-               (Math/sqrt (+ (Math/pow (dbl/aget temp i) 2) (Math/pow (dbl/aget temp (+ i nk-length)) 2))))
-    ))
+               (Math/sqrt (+ (Math/pow (dbl/aget temp i) 2) (Math/pow (dbl/aget temp (+ i nk-length)) 2))))))
 
 (defn get-log-cq [constant-q]
   (dbl/amap [x constant-q]
@@ -95,8 +87,7 @@
         cq-std (map #(stats/doubles-std %) cq)
         log-means (map #(stats/doubles-mean %) log)
         log-std (map #(stats/doubles-std %) log)]
-    {:cq {:mean (stats/mean cq-means)
-          :std (stats/mean cq-std)}
+    {:cq  {:mean (stats/mean cq-means)
+           :std  (stats/mean cq-std)}
      :log {:mean (stats/mean log-means)
-           :std (stats/mean log-std)}}
-    ))
+           :std  (stats/mean log-std)}}))
