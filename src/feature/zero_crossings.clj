@@ -9,8 +9,8 @@
 
 (defn is-cross-point [^double a ^double b]
   (if (or
-        (> a 0.0 b)
-        (< a 0.0 b)
+        (and (> a 0.0) (< b 0.0))
+        (and (< a 0.0) (> b 0.0))
         (and (= a 0.0) (not= b 0.0)))
     true
     false))

@@ -10,7 +10,7 @@
 (defn next-binary-index ^long [^long index ^long half-length]
   (loop [i index
          position half-length]
-    (if (>= i position 1)
+    (if (and (>= i position) (>= position 1))
       (recur (- i position) (unchecked-divide-int position 2))
       (+ i position))))
 
