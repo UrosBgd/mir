@@ -8,29 +8,26 @@
             [io.import :as in]
             [dsp.fft :as dsp]))
 
-(def ^:dynamic *fft-part-sample*)
+(def fft-real '(919986.0 254481.71246110986
+                 -162257.49813089188 55489.36724442117
+                 1033610.5233912581 246752.16127776477
+                 -531333.3883311838 17471.739965561836
+                 -433925.15907428093 -333344.1485698441))
 
-(defn fft-fixture [f]
-  (let [fft-sample (dsp/fft-all (in/get-shorts (in/get-bytes (clojure.java.io/file "/home/stefan/Desktop/genres/rock/rock.00000.au"))) 4096)]
-    (f)
-    (alter-var-root #'*fft-part-sample* (constantly (take 5 fft-sample)))))
+(def fft-imag '(0.0 -365147.69277765695
+                 -696312.5485271476 -80868.71262493818
+                 104901.48533928307 443699.3866246395
+                 1472270.9146668555 -763179.9975485208
+                 -159647.81324832543 452799.83189191564))
 
-(use-fixtures :once fft-fixture)
+(def fft-part-sample [{:real (double-array fft-real) :imag (double-array fft-imag)}])
 
 (deftest power-spectrum-test
-  (is (= '(2.0663433598535156E8
-            4.836273914013309E7
-            1.2479947776759467E8
-            2348344.3747072946
-            2.6351441301062948E8
-            6.292865595369369E7)
-         (take 6 (spectrum/power-spectrum (nth *fft-part-sample* 0))))))
+  (is (= [8.46374240196E10 1.9809377951798515E10 5.111786609360677E10
+          9.618818558801079E8 1.0793550356915384E11]
+         (take 6 (spectrum/power-spectrum (nth fft-part-sample 0))))))
 
 (deftest magnitude-spectrum-test
-  (is (= '(224.60595703125
-            108.66144376173204
-            174.55263533345513
-            23.944232360973135
-            253.64260976603126
-            123.94935011908997)
-         (take 6 (spectrum/magnitude-spectrum (nth *fft-part-sample* 0))))))
+  (is (= [91998.6 44507.72736480545 71496.75943258322
+          9807.557575054596 103892.01296016641]
+         (take 6 (spectrum/magnitude-spectrum (nth fft-part-sample 0))))))

@@ -6,18 +6,24 @@
             [io.import :as in]
             [dsp.fft :as dsp]))
 
-(def ^:dynamic *fft-part-sample*)
+(def fft-real '(919986.0 254481.71246110986
+                 -162257.49813089188 55489.36724442117
+                 1033610.5233912581 246752.16127776477
+                 -531333.3883311838 17471.739965561836
+                 -433925.15907428093 -333344.1485698441))
 
-(defn fft-fixture [f]
-  (let [fft-sample (dsp/fft-all (in/get-shorts (in/get-bytes (clojure.java.io/file "/home/stefan/Desktop/genres/rock/rock.00000.au"))) 4096)]
-    (f)
-    (alter-var-root #'*fft-part-sample* (constantly (take 5 fft-sample)))))
+(def fft-imag '(0.0 -365147.69277765695
+                 -696312.5485271476 -80868.71262493818
+                 104901.48533928307 443699.3866246395
+                 1472270.9146668555 -763179.9975485208
+                 -159647.81324832543 452799.83189191564))
 
-(use-fixtures :once fft-fixture)
+(def fft-part-sample [{:real (double-array fft-real) :imag (double-array fft-imag)}])
 
-(def moments-result {:scale    '(377909.9093030704 374397.0022997965 373922.85316162993 384051.1419238296 383864.8769225861),
-                     :mean     '(1023.3913985996699 1023.4076268008608 1023.8473261275236 1023.7331013013383 1023.4135729431532),
-                     :centroid '(-1046306.5633291886 -1046339.7629673693 -1047239.4998923521 -1047005.7295987548 -1046351.9277113276)})
+
+(def moments-result {:scale    '(321702.65733260964),
+                     :mean     '(1.9660763017629206),
+                     :centroid '(-1.899379722590842)})
 
 
 (deftest get-scale-test
@@ -51,4 +57,4 @@
 
 (deftest get-moments-test
   (is (= moments-result
-         (mom/get-moments *fft-part-sample*))))
+         (mom/get-moments fft-part-sample))))
